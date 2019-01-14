@@ -61,7 +61,7 @@ var category = "triviaQA-0";
     }
     function startGame(){       
         // set questionLength variable
-        firebase.database().ref().child('triviaQA-0').on('value', function(snap){
+        firebase.database().ref().child(category).on('value', function(snap){
             questionLength = snap.numChildren();                    
         });
         askQuestion();
@@ -71,7 +71,7 @@ var category = "triviaQA-0";
     function askQuestion() {
 
                 // set reference objects
-                var dbRefObject = firebase.database().ref().child('triviaQA-0').child('q'+qNum);
+                var dbRefObject = firebase.database().ref().child(category).child('q'+qNum);
                 var questionRef = dbRefObject.child('question');
                 var choicesRef = dbRefObject.child('choices');
                 var answerRef = dbRefObject.child('answer');                
