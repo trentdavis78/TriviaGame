@@ -1,8 +1,12 @@
 $(document).ready(function() {   
 //  game variables 
 var intervalId;
-var time = 10;
+var time = 5;
 var clockRunning = false;
+var qNum = 0;
+var wins = 0;
+var losses = 0;
+var unanswered = 0;
 var triviaQA = 
 [
   {
@@ -19,6 +23,12 @@ var triviaQA =
   
   
 ];
+    // onclick event to hide the splash screen, unhide game content and start the game
+    $("#start").on("click", function(){
+        $("#splash").addClass("hidden");
+        $("#gameContent").removeClass("hidden");   
+        startGame();
+    });
    
     //change bg color when radio is selected
     $('#answerRow input:radio').change(function() {
@@ -48,18 +58,75 @@ var triviaQA =
         time--;
         $("#timer").text(time);
         if(time == 0){
-            stopTimer();
+            stopTimer(); 
+            checkResponse();          
         }
     }
-    function startGame(){
-        $("#question").text(triviaQA[0].question)
-            
-        for(i=0; i < 5; i++){
-            var options = triviaQA[0].choices;
-             $("#answer-" + i).text(options[i]);
-            
-        }
+    function startGame(){       
+        askQuestion();
+        $("#timer").text(time);
         startTimer();
     }
-    startGame();
+    function askQuestion() {
+        $("#question").text(triviaQA[qNum].question);            
+        for(i=0; i < 5; i++){
+            var options = triviaQA[qNum].choices;
+             $("#answer-" + i).text(options[i]);            
+        }
+        
+    }
+    function checkResponse(){
+        var response = $("input[name='answers']:checked").val();
+        if(response){
+            if(response == triviaQA[qNum].answer) {
+                $("#answer-"+response).addClass("correct");
+                wins++;            
+            } else {
+                $("#answer-"+response).addClass("wrong");
+                $("#answer-"+triviaQA[qNum].answer).addClass("correct");  
+                losses++;               
+            }
+        } else {
+            $("#answer-"+triviaQA[qNum].answer).addClass("correct");  
+            unanswered++;
+        }
+              
+        console.log(wins, losses, unanswered);
+        
+        setTimeout(resetQuestion, 1500);
+    }
+    function resetQuestion() {
+        $('.answers').children("span").removeClass("correct");
+        $('.answers').children("span").removeClass("wrong");
+        $('.answers').children("input[type=radio]").prop("checked", false);
+        $('div.highlight').removeClass('highlight');        
+        time = 5;        
+        qNum++;
+                
+        if(qNum < triviaQA.length){            
+            startGame();
+        } else {
+            endGame();
+        }
+    }
+    function endGame() {
+       $("#gameContent").addClass("hidden");
+       $("#endGame").removeClass("hidden");   
+       $("#wins").text(wins);
+       $("#losses").text(losses);
+       $("#unanswered").text(unanswered);     
+    }
+    function restartGame() {
+        time = 5;        
+        qNum = 0;
+        wins = 0;
+        losses = 0;
+        unanswered = 0;
+        $("#gameContent").removeClass("hidden");
+        $("#endGame").addClass("hidden"); 
+        startGame();
+    }
+    $("#playAgain").on("click", function(){
+        restartGame();
+    });
   });
