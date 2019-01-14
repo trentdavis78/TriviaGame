@@ -16,8 +16,8 @@ var triviaQA =
   },
   
   {
-    question: "What is the capital of United States?",
-    choices: ["California", "Washington D.C.", "Miami", "Florida"],
+    question: "What grade do I hope to get on my Trivia Game project?",
+    choices: ["A", "A+", "B", "I just hope to submit it on time"],
     answer: 1
   }
   
