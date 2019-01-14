@@ -1,0 +1,61 @@
+h1 {
+    font-size: 1.5rem;
+}
+.timerRow {
+    position: relative;
+}
+#timer {
+    position: absolute;
+    background: #fff;
+    border: 2px solid blue;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    color: blue;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    bottom: 0;
+    left: 50%;
+    margin-left: -50px;
+}
+.answers {
+    max-width: 300px;   
+    border-radius: 50px;  
+    position: relative;
+    color: #000;
+    font-weight: bold; 
+}
+.answerRow {
+    
+}
+.answerNotChecked {
+    background: #f4f4f4;
+}
+.answerChecked {
+    background: #ccc;
+}
+.wrong {
+    color: red;
+    text-decoration: line-through; 
+}
+.correct {
+    color: green;
+}
+.correct::before {
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f058";
+    color: green;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 8px;
+    bottom: 3px;
+  }
+  .wrong::before {
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f057";
+    color: red;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 8px;
+    bottom: 3px;
+  }
