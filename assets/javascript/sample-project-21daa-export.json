@@ -1,0 +1,12 @@
+{
+  "triviaQA-0" : {
+    "answer" : 2,
+    "choices" : [ "One hour", "Ten hours", "Before 12pm on Saturday", "It can never be finished" ],
+    "question" : "How long does it take to code a trivia game with HTML, CSS, and Javascript?"
+  },
+  "triviaQA-1" : {
+    "answer" : 1,
+    "choices" : [ "A", "A+", "B", "I just hope to get it submitted on time" ],
+    "question" : "What grade do you hope to get on your trivia game assignment?"
+  }
+}

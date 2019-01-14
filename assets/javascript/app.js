@@ -1,4 +1,14 @@
 $(document).ready(function() {   
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyBmtHwFeSSpncbrLPf4wSKzEd7kFytw2aI",
+    authDomain: "sample-project-21daa.firebaseapp.com",
+    databaseURL: "https://sample-project-21daa.firebaseio.com",
+    projectId: "sample-project-21daa",
+    storageBucket: "sample-project-21daa.appspot.com",
+    messagingSenderId: "1058522665094"
+};
+firebase.initializeApp(config);
 //  game variables 
 var intervalId;
 var time = 3;
@@ -7,22 +17,8 @@ var qNum = 0;
 var wins = 0;
 var losses = 0;
 var unanswered = 0;
-var triviaQA = 
-[
-  {
-    question: "How long does it take to code a trivia game with HTML, CSS, and Javascript?",
-    choices: ["One hour", "Ten hours", "Before 12pm on Saturday", "It can never be finished"],
-    answer: 2
-  },
-  
-  {
-    question: "What grade do I hope to get on my Trivia Game project?",
-    choices: ["A", "A+", "B", "I just hope to submit it on time"],
-    answer: 1
-  }
-  
-  
-];
+var answer;
+var triviaQA = "triviaQA";
     // onclick event to hide the splash screen, unhide game content and start the game
     $("#start").on("click", function(){
         $("#splash").addClass("hidden");
@@ -68,30 +64,42 @@ var triviaQA =
         startTimer();
     }
     function askQuestion() {
-        $("#question").text(triviaQA[qNum].question);            
-        for(i=0; i < 5; i++){
-            var options = triviaQA[qNum].choices;
-             $("#answer-" + i).text(options[i]);            
-        }
+                // set reference objects
+                var dbRefObject = firebase.database().ref().child('triviaQA-'+qNum);
+                var questionRef = dbRefObject.child('question');
+                var choicesRef = dbRefObject.child('choices');
+                var answerRef = dbRefObject.child('answer');
+        
+                // write answers to the choice radio button spans
+                choicesRef.on('child_added', snap => {
+                    $("#answer-"+snap.key).text(snap.val());
+                });
+                // write the question to the jumbotron
+                questionRef.on('value', snap => $("#question").text(snap.val()));
+                // set the answer to the answer variable 
+                answerRef.on('value', function(snap){
+                    answer = snap.val();           
+                
+        });
         
     }
     function checkResponse(){
         var response = $("input[name='answers']:checked").val();
         if(response){
-            if(response == triviaQA[qNum].answer) {
+            if(response == answer ) {
                 $("#answer-"+response).addClass("correct");
                 wins++;            
             } else {
                 $("#answer-"+response).addClass("wrong");
-                $("#answer-"+triviaQA[qNum].answer).addClass("correct");  
+                $("#answer-"+answer).addClass("correct");  
                 losses++;               
             }
         } else {
-            $("#answer-"+triviaQA[qNum].answer).addClass("correct");  
+            $("#answer-"+answer).addClass("correct");  
             unanswered++;
         }
               
-        console.log(wins, losses, unanswered);
+        // console.log(wins, losses, unanswered);
         
         setTimeout(resetQuestion, 1500);
     }
@@ -129,4 +137,5 @@ var triviaQA =
     $("#playAgain").on("click", function(){
         restartGame();
     });
+
   });
