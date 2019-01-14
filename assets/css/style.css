@@ -24,17 +24,9 @@ h1 {
     max-width: 300px;   
     border-radius: 50px;  
     position: relative;
+    background: #f4f4f4;
     color: #000;
     font-weight: bold; 
-}
-.answerRow {
-    
-}
-.answerNotChecked {
-    background: #f4f4f4;
-}
-.answerChecked {
-    background: #ccc;
 }
 .wrong {
     color: red;
@@ -58,4 +50,7 @@ h1 {
     position: absolute;
     right: 8px;
     bottom: 3px;
+  }
+  .highlight {
+    background: #ccc;
   }
