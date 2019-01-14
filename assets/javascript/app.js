@@ -1,7 +1,7 @@
 $(document).ready(function() {   
 //  game variables 
 var intervalId;
-var time = 5;
+var time = 3;
 var clockRunning = false;
 var qNum = 0;
 var wins = 0;
@@ -39,9 +39,9 @@ var triviaQA =
     // allow containing div to check radio button and change highlight class --> for mobile functionality
     $('.answers').click( function(){
         $('.answers').removeClass('highlight');
-        $('.answers').children("input[type=radio]").removeAttr("checked");
+        $('.answers').children("input[type=radio]").prop("checked", false);
         $(this).addClass('highlight');
-        $(this).children("input[type=radio]").attr("checked","checked");
+        $(this).children("input[type=radio]").prop("checked", true);
     });
 
     function startTimer(){
