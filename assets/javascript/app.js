@@ -5,4 +5,11 @@ $(document).ready(function() {
       $('div.highlight').removeClass('highlight');
       $(this).closest('.answers').addClass('highlight');
     });
+    // allow containing div to check radio button and change highlight class --> for mobile functionality
+    $('.answers').click( function(){
+        $('.answers').removeClass('highlight');
+        $('.answers').children("input[type=radio]").removeAttr("checked");
+        $(this).addClass('highlight');
+        $(this).children("input[type=radio]").attr("checked","checked");
+    });
   });
