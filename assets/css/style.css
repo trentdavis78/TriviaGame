@@ -27,6 +27,7 @@ h1 {
     background: #f4f4f4;
     color: #000;
     font-weight: bold; 
+    cursor: pointer;
 }
 .wrong {
     color: red;
