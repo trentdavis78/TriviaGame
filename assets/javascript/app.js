@@ -18,7 +18,8 @@ var wins = 0;
 var losses = 0;
 var unanswered = 0;
 var answer;
-var triviaQA = "triviaQA";
+var questionLength = 0;
+var category = "triviaQA-0";
     // onclick event to hide the splash screen, unhide game content and start the game
     $("#start").on("click", function(){
         $("#splash").addClass("hidden");
@@ -59,17 +60,21 @@ var triviaQA = "triviaQA";
         }
     }
     function startGame(){       
+        // set questionLength variable
+        firebase.database().ref().child('triviaQA-0').on('value', function(snap){
+            questionLength = snap.numChildren();                    
+        });
         askQuestion();
         $("#timer").text(time);
         startTimer();
     }
     function askQuestion() {
+
                 // set reference objects
-                var dbRefObject = firebase.database().ref().child('triviaQA-'+qNum);
+                var dbRefObject = firebase.database().ref().child('triviaQA-0').child('q'+qNum);
                 var questionRef = dbRefObject.child('question');
                 var choicesRef = dbRefObject.child('choices');
-                var answerRef = dbRefObject.child('answer');
-        
+                var answerRef = dbRefObject.child('answer');                
                 // write answers to the choice radio button spans
                 choicesRef.on('child_added', snap => {
                     $("#answer-"+snap.key).text(snap.val());
@@ -99,7 +104,7 @@ var triviaQA = "triviaQA";
             unanswered++;
         }
               
-        // console.log(wins, losses, unanswered);
+        console.log(wins, losses, unanswered);
         
         setTimeout(resetQuestion, 1500);
     }
@@ -111,7 +116,7 @@ var triviaQA = "triviaQA";
         time = 5;        
         qNum++;
                 
-        if(qNum < triviaQA.length){            
+        if(qNum < questionLength){            
             startGame();
         } else {
             endGame();
