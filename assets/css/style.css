@@ -1,3 +1,6 @@
+body {
+    background: #36399a;
+}
 .hidden {
     display: none;
 }
@@ -8,8 +11,7 @@ h1 {
     font-size: 1.5rem;    
     
 }
-.bg-theme {
-    background: #36399a;
+.bg-theme {    
     border-bottom: 3px solid #7175DB;
 }
 .btn-theme {
@@ -33,7 +35,10 @@ h1 {
 .nav-item a {
     color: #fff;
 }
-#splash, #endRound, #endGame {
+#main-content {
+    height: 450px;
+}
+#splash, #endRound, #endGame, #leaderboard {
     width: 320px;
     margin: 20px auto;
     border: 1px solid #f4f4f4;
@@ -106,13 +111,14 @@ h1 {
     background-color: #36399a;
 }
 .tally {
-    width: 135px;
+    width: 150px;
     color: #1c1b72;
+    font-size: 1.2rem;
     margin-bottom: 15px;
 }
 #score, #finalScore{
     font-size: 4rem;
 }
-#endRound h1, #endGame h1 {
+#endRound h1, #endGame h1, #leaderboard h1 {
     font-family: 'Sonsie One', cursive;
 }

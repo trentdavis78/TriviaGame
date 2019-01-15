@@ -26,6 +26,7 @@ var categorySelected = 0;
     // onclick event to hide the splash screen, unhide game content and start the game
     $(".categoryBtn").on("click", function(e){
         $("#splash").addClass("hidden");
+        $("#leaderboard").addClass("hidden");
         $("#gameContent").removeClass("hidden");   
         $("#"+e.target.id).removeClass("btn-theme");  
         $("#"+e.target.id).addClass("btn-secondary");  
@@ -156,6 +157,7 @@ var categorySelected = 0;
         losses = 0;
         unanswered = 0;
         $("#splash").removeClass("hidden");
+        $("#leaderboard").removeClass("hidden");
         $("#gameContent").addClass("hidden");   
         $("#endRound").addClass("hidden");   
     }
@@ -167,6 +169,7 @@ var categorySelected = 0;
         qNum = 0;
         wins = 0;
         losses = 0;
+        score = 0;
         unanswered = 0;
         categorySelected = 0;
         $("#splash").removeClass("hidden");
