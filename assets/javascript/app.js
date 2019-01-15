@@ -22,6 +22,10 @@ var questionLength = 0;
 var category;
 var score = 0;
 var categorySelected = 0;
+var leaderScore0;
+var leaderScore1;
+var leaderScore2;
+var hsPath;
 
     // onclick event to hide the splash screen, unhide game content and start the game
     $(".categoryBtn").on("click", function(e){
@@ -114,7 +118,7 @@ var categorySelected = 0;
             unanswered++;
         }
               
-        console.log(wins, losses, unanswered, score);
+        // console.log(wins, losses, unanswered, score);
         
         setTimeout(resetQuestion, 1500);
     }
@@ -149,6 +153,18 @@ var categorySelected = 0;
         $("#gameContent").addClass("hidden");
         $("#endGame").removeClass("hidden");   
         $("#finalScore").text(score);   
+        console.log(score);
+        
+        if(score > parseInt(leaderScore2)) {
+            $("#newHighScore").removeClass("hidden"); 
+            if(score > parseInt(leaderScore2) && score < parseInt(leaderScore1) ) {
+                hsPath = "p2";
+            } else if(score > parseInt(leaderScore1) && score < parseInt(leaderScore0)) {
+                hsPath = "p1";
+            } else {
+                hsPath = "p0";
+            }
+        }
     }
     function restartGame() {
         time = 4;        
@@ -160,6 +176,7 @@ var categorySelected = 0;
         $("#leaderboard").removeClass("hidden");
         $("#gameContent").addClass("hidden");   
         $("#endRound").addClass("hidden");   
+        $("#newHighScore").addClass("hidden"); 
     }
     $("#nextCategory").on("click", function(){
         restartGame();
@@ -176,28 +193,48 @@ var categorySelected = 0;
         $(".categoryBtn").addClass("btn-theme");       
         startOver();
     });
-    function loadLeaderBoard(){ 
-        
+    function loadLeaderBoard(){         
         var leaderRef = firebase.database().ref().child("highscores");
         leaderRef.child("p0").child('name').on('value', snap => {
             $("#p0").text(snap.val());            
         }); 
         leaderRef.child("p0").child('score').on('value', snap => {
             $("#p0score").text(snap.val());  
+            leaderScore0 = snap.val();            
         });    
         leaderRef.child("p1").child('name').on('value', snap => {
             $("#p1").text(snap.val());            
         }); 
         leaderRef.child("p1").child('score').on('value', snap => {
             $("#p1score").text(snap.val());  
+            leaderScore1 = snap.val();  
         }); 
         leaderRef.child("p2").child('name').on('value', snap => {
             $("#p2").text(snap.val());            
         }); 
         leaderRef.child("p2").child('score').on('value', snap => {
             $("#p2score").text(snap.val());  
+            leaderScore2 = snap.val();  
         });
     }
     loadLeaderBoard();
+
+    $("#addHighScore").on('click', function(){
+        var hsName = $("#newHighScoreName").val();        
+        var hsObj = {
+            name : hsName,
+            score: score
+        }
+        var path = hsPath;
+        updateHighScore(path,hsObj);
+        $("#newHighScoreName").val("");
+        $("#newHighScore").addClass("hidden"); 
+        $("#leaderboard").removeClass("hidden");
+    });
+    function updateHighScore(path, data) {
+        var leaderRef = firebase.database().ref().child("highscores");
+        leaderRef.child(path).update(data);
+    }
+    
   });
   

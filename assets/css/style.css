@@ -38,7 +38,7 @@ h1 {
 #main-content {
     height: 450px;
 }
-#splash, #endRound, #endGame, #leaderboard {
+#splash, #endRound, #endGame, #leaderboard, #newHighScore {
     width: 320px;
     margin: 20px auto;
     border: 1px solid #f4f4f4;
@@ -47,6 +47,7 @@ h1 {
     background: #fff;
     border-radius: 10px;
 }
+
 .timerRow {
     position: relative;
 }
@@ -119,6 +120,6 @@ h1 {
 #score, #finalScore{
     font-size: 4rem;
 }
-#endRound h1, #endGame h1, #leaderboard h1 {
+#endRound h1, #endGame h1, #leaderboard h1  {
     font-family: 'Sonsie One', cursive;
 }
