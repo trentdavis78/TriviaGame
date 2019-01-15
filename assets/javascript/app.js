@@ -100,16 +100,16 @@ var categorySelected = 0;
         var response = $("input[name='answers']:checked").val();
         if(response){
             if(response == answer ) {
-                $("#answer-"+response).addClass("correct");
+               $("#answer-"+response).addClass("correct");
                 wins++;           
                 score = score + 1; 
             } else {
                 $("#answer-"+response).addClass("wrong");
-                $("#answer-"+answer).addClass("correct");  
+                $("#answer-"+answer).addClass("correct unanswered");  
                 losses++;               
             }
         } else {
-            $("#answer-"+answer).addClass("correct");  
+            $("#answer-"+answer).addClass("correct unanswered");  
             unanswered++;
         }
               
@@ -120,16 +120,21 @@ var categorySelected = 0;
     function resetQuestion() {
         $('.answers').children("span").removeClass("correct");
         $('.answers').children("span").removeClass("wrong");
+        $('.answers').children("span").removeClass("unanswered");
         $('.answers').children("input[type=radio]").prop("checked", false);
         $('div.highlight').removeClass('highlight');        
         time = 4;        
         qNum++;
-                
-        if(qNum < questionLength){            
-            startRound();
+        if(categorySelected < 4){
+            if(qNum < questionLength){            
+                startRound();
+            } else {
+                endRound();
+            }
         } else {
-            endRound();
-        }
+            endGame();
+        }      
+        
     }
     function endRound() {
        $("#gameContent").addClass("hidden");
@@ -137,6 +142,12 @@ var categorySelected = 0;
        $("#wins").text(wins);
        $("#losses").text(losses);
        $("#unanswered").text(unanswered);     
+       $("#score").text(score);   
+    }
+    function endGame() {
+        $("#gameContent").addClass("hidden");
+        $("#endGame").removeClass("hidden");   
+        $("#finalScore").text(score);   
     }
     function restartGame() {
         time = 4;        
@@ -148,8 +159,24 @@ var categorySelected = 0;
         $("#gameContent").addClass("hidden");   
         $("#endRound").addClass("hidden");   
     }
-    $("#playAgain").on("click", function(){
+    $("#nextCategory").on("click", function(){
         restartGame();
     });
-
+    function startOver() {
+        time = 4;        
+        qNum = 0;
+        wins = 0;
+        losses = 0;
+        unanswered = 0;
+        categorySelected = 0;
+        $("#splash").removeClass("hidden");
+        $("#gameContent").addClass("hidden");   
+        $("#endGame").addClass("hidden");  
+    }
+    $("#startOver").on("click", function(){
+        $(".categoryBtn").attr("disabled", false);
+        $(".categoryBtn").removeClass("btn-secondary");
+        $(".categoryBtn").addClass("btn-theme");       
+        startOver();
+    });
   });

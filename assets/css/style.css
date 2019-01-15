@@ -1,9 +1,12 @@
 .hidden {
     display: none;
 }
-h1 {
-    font-size: 1.5rem;
+h1, h2, h3, h4, h5, h6 {
     color: #1c1b72;
+}
+h1 {
+    font-size: 1.5rem;    
+    
 }
 .bg-theme {
     background: #36399a;
@@ -30,7 +33,7 @@ h1 {
 .nav-item a {
     color: #fff;
 }
-#splash, #endRound {
+#splash, #endRound, #endGame {
     width: 320px;
     margin: 20px auto;
     border: 1px solid #f4f4f4;
@@ -39,8 +42,6 @@ h1 {
     background: #fff;
     border-radius: 10px;
 }
-
-
 .timerRow {
     position: relative;
 }
@@ -72,21 +73,23 @@ h1 {
     cursor: pointer;
 }
 .wrong {
-    color: red;
+    color: #ED2939;
     text-decoration: line-through; 
 }
-.correct {
+.correct, .correct::before {
+    color: green;
+}
+.unanswered, .unanswered::before {
     color: #39FF14;
 }
 .correct::before {
-    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f058";
-    color: #39FF14;
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f058";    
     font-size: 1.5rem;
     position: absolute;
     right: 8px;
     bottom: 3px;
   }
-  .wrong::before {
+.wrong::before {
     font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f057";
     color: #ED2939;
     font-size: 1.5rem;
@@ -94,7 +97,22 @@ h1 {
     right: 8px;
     bottom: 3px;
   }
-  .highlight {
+.highlight {
     background: #ccc;
     color: #36399a;
   }
+.badge-theme {
+    color: #fff;
+    background-color: #36399a;
+}
+.tally {
+    width: 135px;
+    color: #1c1b72;
+    margin-bottom: 15px;
+}
+#score, #finalScore{
+    font-size: 4rem;
+}
+#endRound h1, #endGame h1 {
+    font-family: 'Sonsie One', cursive;
+}
