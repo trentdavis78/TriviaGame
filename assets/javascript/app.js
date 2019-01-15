@@ -1,17 +1,17 @@
 $(document).ready(function() {   
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyBmtHwFeSSpncbrLPf4wSKzEd7kFytw2aI",
-    authDomain: "sample-project-21daa.firebaseapp.com",
-    databaseURL: "https://sample-project-21daa.firebaseio.com",
-    projectId: "sample-project-21daa",
-    storageBucket: "sample-project-21daa.appspot.com",
-    messagingSenderId: "1058522665094"
-};
-firebase.initializeApp(config);
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyARgHGjUoNIXG9BTX096kVLoT5Md_HmKQo",
+    authDomain: "trivia-game-ec53a.firebaseapp.com",
+    databaseURL: "https://trivia-game-ec53a.firebaseio.com",
+    projectId: "trivia-game-ec53a",
+    storageBucket: "",
+    messagingSenderId: "632296056982"
+  };
+  firebase.initializeApp(config);
 //  game variables 
 var intervalId;
-var time = 3;
+var time = 4;
 var clockRunning = false;
 var qNum = 0;
 var wins = 0;
@@ -19,11 +19,18 @@ var losses = 0;
 var unanswered = 0;
 var answer;
 var questionLength = 0;
-var category = "triviaQA-0";
+var category;
+var categorySelected = 0;
+
     // onclick event to hide the splash screen, unhide game content and start the game
-    $("#start").on("click", function(){
+    $(".categoryBtn").on("click", function(e){
         $("#splash").addClass("hidden");
         $("#gameContent").removeClass("hidden");   
+        $("#"+e.target.id).removeClass("btn-primary");  
+        $("#"+e.target.id).addClass("btn-secondary");  
+        $("#"+e.target.id).attr("disabled", true);      
+        category = e.target.value;
+        categorySelected++;
         startGame();
     });
    
@@ -59,7 +66,8 @@ var category = "triviaQA-0";
             checkResponse();          
         }
     }
-    function startGame(){       
+    function startGame(){      
+
         // set questionLength variable
         firebase.database().ref().child(category).on('value', function(snap){
             questionLength = snap.numChildren();                    
@@ -113,7 +121,7 @@ var category = "triviaQA-0";
         $('.answers').children("span").removeClass("wrong");
         $('.answers').children("input[type=radio]").prop("checked", false);
         $('div.highlight').removeClass('highlight');        
-        time = 5;        
+        time = 4;        
         qNum++;
                 
         if(qNum < questionLength){            
@@ -130,14 +138,14 @@ var category = "triviaQA-0";
        $("#unanswered").text(unanswered);     
     }
     function restartGame() {
-        time = 5;        
+        time = 4;        
         qNum = 0;
         wins = 0;
         losses = 0;
         unanswered = 0;
-        $("#gameContent").removeClass("hidden");
-        $("#endGame").addClass("hidden"); 
-        startGame();
+        $("#splash").removeClass("hidden");
+        $("#gameContent").addClass("hidden");   
+        $("#endGame").addClass("hidden");   
     }
     $("#playAgain").on("click", function(){
         restartGame();
