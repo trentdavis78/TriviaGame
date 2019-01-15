@@ -17,6 +17,9 @@ h1 {
     color: #1c1b72;
     font-weight: bold;
 }
+.navbar-brand img {
+    height: 50px;
+}
 .logo-text {
     font-family: 'Sonsie One', cursive;
     color: #fff;
