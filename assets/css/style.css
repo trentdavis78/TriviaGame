@@ -30,7 +30,7 @@ h1 {
 .nav-item a {
     color: #fff;
 }
-#splash, #endGame {
+#splash, #endRound {
     width: 320px;
     margin: 20px auto;
     border: 1px solid #f4f4f4;
