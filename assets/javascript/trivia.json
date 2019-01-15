@@ -45,5 +45,19 @@
             "choices" : [ "Jamie Foxx", "Samuel L. Jackson", "Christoph Waltz", "Leonardo Dicaprio" ],
             "question" : "He won best supporting actor for his role in Django:"
         }
+    },
+    "highscores" : {
+        "p0" : {
+            "name" : "John",
+            "score" : 200
+        },
+        "p1" : {
+            "name" : "Joe",
+            "score" : 150
+        },
+        "p2" : {
+            "name" : "Jane",
+            "score" : 100
+        }
     }
-  }
+}

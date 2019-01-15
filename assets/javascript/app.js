@@ -165,16 +165,10 @@ var categorySelected = 0;
         restartGame();
     });
     function startOver() {
-        time = 4;        
-        qNum = 0;
-        wins = 0;
-        losses = 0;
-        score = 0;
-        unanswered = 0;
-        categorySelected = 0;
-        $("#splash").removeClass("hidden");
-        $("#gameContent").addClass("hidden");   
+        score = 0;        
+        categorySelected = 0;        
         $("#endGame").addClass("hidden");  
+        restartGame();
     }
     $("#startOver").on("click", function(){
         $(".categoryBtn").attr("disabled", false);
@@ -182,4 +176,28 @@ var categorySelected = 0;
         $(".categoryBtn").addClass("btn-theme");       
         startOver();
     });
+    function loadLeaderBoard(){ 
+        
+        var leaderRef = firebase.database().ref().child("highscores");
+        leaderRef.child("p0").child('name').on('value', snap => {
+            $("#p0").text(snap.val());            
+        }); 
+        leaderRef.child("p0").child('score').on('value', snap => {
+            $("#p0score").text(snap.val());  
+        });    
+        leaderRef.child("p1").child('name').on('value', snap => {
+            $("#p1").text(snap.val());            
+        }); 
+        leaderRef.child("p1").child('score').on('value', snap => {
+            $("#p1score").text(snap.val());  
+        }); 
+        leaderRef.child("p2").child('name').on('value', snap => {
+            $("#p2").text(snap.val());            
+        }); 
+        leaderRef.child("p2").child('score').on('value', snap => {
+            $("#p2score").text(snap.val());  
+        });
+    }
+    loadLeaderBoard();
   });
+  
