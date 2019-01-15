@@ -20,18 +20,19 @@ var unanswered = 0;
 var answer;
 var questionLength = 0;
 var category;
+var score = 0;
 var categorySelected = 0;
 
     // onclick event to hide the splash screen, unhide game content and start the game
     $(".categoryBtn").on("click", function(e){
         $("#splash").addClass("hidden");
         $("#gameContent").removeClass("hidden");   
-        $("#"+e.target.id).removeClass("btn-primary");  
+        $("#"+e.target.id).removeClass("btn-theme");  
         $("#"+e.target.id).addClass("btn-secondary");  
         $("#"+e.target.id).attr("disabled", true);      
         category = e.target.value;
         categorySelected++;
-        startGame();
+        startRound();
     });
    
     //change bg color when radio is selected
@@ -66,8 +67,7 @@ var categorySelected = 0;
             checkResponse();          
         }
     }
-    function startGame(){      
-
+    function startRound(){    
         // set questionLength variable
         firebase.database().ref().child(category).on('value', function(snap){
             questionLength = snap.numChildren();                    
@@ -101,7 +101,8 @@ var categorySelected = 0;
         if(response){
             if(response == answer ) {
                 $("#answer-"+response).addClass("correct");
-                wins++;            
+                wins++;           
+                score = score + 1; 
             } else {
                 $("#answer-"+response).addClass("wrong");
                 $("#answer-"+answer).addClass("correct");  
@@ -112,7 +113,7 @@ var categorySelected = 0;
             unanswered++;
         }
               
-        console.log(wins, losses, unanswered);
+        console.log(wins, losses, unanswered, score);
         
         setTimeout(resetQuestion, 1500);
     }
@@ -125,14 +126,14 @@ var categorySelected = 0;
         qNum++;
                 
         if(qNum < questionLength){            
-            startGame();
+            startRound();
         } else {
-            endGame();
+            endRound();
         }
     }
-    function endGame() {
+    function endRound() {
        $("#gameContent").addClass("hidden");
-       $("#endGame").removeClass("hidden");   
+       $("#endRound").removeClass("hidden");   
        $("#wins").text(wins);
        $("#losses").text(losses);
        $("#unanswered").text(unanswered);     
@@ -145,7 +146,7 @@ var categorySelected = 0;
         unanswered = 0;
         $("#splash").removeClass("hidden");
         $("#gameContent").addClass("hidden");   
-        $("#endGame").addClass("hidden");   
+        $("#endRound").addClass("hidden");   
     }
     $("#playAgain").on("click", function(){
         restartGame();

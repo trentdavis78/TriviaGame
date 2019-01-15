@@ -10,19 +10,20 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Sonsie+One" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />    
 </head>
 <body>
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Trivia Game</a>
+<div class="container bg-theme">
+    <nav class="navbar navbar-expand-lg bg-theme">
+            <a class="navbar-brand" href="#"><img src="assets/images/logo.png"><span class="logo-text">Trivia</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">How To Play <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#"><i title="How to Play" class="fas fa-question-circle fa-lg"></i><span class="sr-only">(current)</span></a>
                 </li>                    
                 </ul>
             </div>
@@ -30,24 +31,25 @@
     <div id="splash">        
                 <h1>Select Category:</h1>
                 <div class="row">
-                    <button id="general" class="btn btn-primary btn-lg btn-block mt-2 categoryBtn" value="general">General</button>
+                    <button id="general" class="btn btn-theme btn-lg btn-block mt-2 categoryBtn" value="general">General</button>
                 </div>
                 <div class="row">
-                    <button id="sports" class="btn btn-primary btn-lg btn-block mt-2 categoryBtn" value="sports">Sports</button>
+                    <button id="sports" class="btn btn-theme btn-lg btn-block mt-2 categoryBtn" value="sports">Sports</button>
                 </div>
                 <div class="row">
-                        <button id="coding" class="btn btn-primary btn-lg btn-block mt-2 categoryBtn" value="coding">Coding</button>
+                        <button id="coding" class="btn btn-theme btn-lg btn-block mt-2 categoryBtn" value="coding">Coding</button>
                 </div>
                 <div class="row">
-                        <button id="movies" class="btn btn-primary btn-lg btn-block mt-2 categoryBtn" value="movies">Movies</button>
+                        <button id="movies" class="btn btn-theme btn-lg btn-block mt-2 categoryBtn" value="movies">Movies</button>
                 </div>                
     </div>
-    <div id="endGame" class="hidden">
-        <h1>Game Over!</h1>
+    <div id="endRound" class="hidden">
+        <h1>Round Over!</h1>
         <p>You answered <span id="wins"></span> questions correctly</p>
         <p>You answered <span id="losses"></span> questions incorrectly</p>
         <p>You left <span id="unanswered"></span> questions unanswered</p>
-        <button id="playAgain" class="btn btn-success btn-lg">PLAY AGAIN?</button>
+        <p>Your current score is: <span id="score"></span></p>
+        <button id="playAgain" class="btn btn-success btn-lg">Next Category</button>
     </div>
     <div id="gameContent" class="hidden">
             <div class="jumbotron jumbotron-fluid">
