@@ -123,3 +123,16 @@ h1 {
 #endRound h1, #endGame h1, #leaderboard h1  {
     font-family: 'Sonsie One', cursive;
 }
+#leaderboard table  {
+    color: #1c1b72;
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: left;
+}
+.rank {
+    font-family: 'Sonsie One', cursive;
+}
+.playerName {
+    min-width: 158px;
+}
