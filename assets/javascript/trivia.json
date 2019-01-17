@@ -46,18 +46,46 @@
             "question" : "He won best supporting actor for his role in Django:"
         }
     },
+    "music" : {
+        "q0" : {
+            "answer" : 0,
+            "choices" : [ "Mark David Chapman", "John Wayne Gacy", "James Earl Ray", "Lee Harvey Oswald" ],
+            "question" : "John Lennon was killed by:"
+        }
+    },
+    "history" : {
+        "q0" : {
+            "answer" : 1,
+            "choices" : [ "Boston", "Philadelphia", "Washington D.C.", "San Antonio" ],
+            "question" : "The Declaration of Independce was signed in:"
+        }
+    },
+    "science" : {
+        "q0" : {
+            "answer" : 3,
+            "choices" : [ "Mars", "Earth (eventually)", "Mercury", "Venus" ],
+            "question" : "Which is the hottest planet in the solar system?"
+        }
+    },
+    "legal" : {
+        "q0" : {
+            "answer" : 0,
+            "choices" : [ "This for that", "Quit while you're ahead", "I object, your honor", "No contest" ],
+            "question" : "Quid Pro Quo roughtly translates to:"
+        }
+    },
     "highscores" : {
         "p0" : {
             "name" : "John",
-            "score" : 200
+            "score" : 0
         },
         "p1" : {
             "name" : "Joe",
-            "score" : 150
+            "score" : 0
         },
         "p2" : {
             "name" : "Jane",
-            "score" : 100
+            "score" : 0
         }
     }
 }

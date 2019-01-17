@@ -289,7 +289,7 @@ $("#finalAnswer").on('click', function(){
         qNum = 0;
         wins = 0;
         losses = 0;
-        unanswered = 0;
+        unanswered = 0;        
         $("#splash").removeClass("hidden");
         $("#leaderboard").removeClass("hidden");
         $("#gameContent").addClass("hidden");   
@@ -304,9 +304,10 @@ $("#finalAnswer").on('click', function(){
     function startOver() {
         score = 0;        
         categorySelected = 0;    
-        streak = 0;    
-        selectCategory = categories;
+        streak = 0;           
         finalAnswer = false;
+        selectCategory = categories;
+        uniqueCategory = [];
         $("#endGame").addClass("hidden");  
         resetFireIcons();
         restartGame();
