@@ -1,4 +1,4 @@
-$(document).ready(function() {   
+$(document).ready(function() {       
   // Initialize Firebase
 var config = {
     apiKey: "AIzaSyARgHGjUoNIXG9BTX096kVLoT5Md_HmKQo",
@@ -32,8 +32,12 @@ var leaderName0;
 var leaderName1;
 var leaderName2;
 var scoreArr = [];
-
-
+// hide the floating score animation before the game starts
+$("#scoreAnim").hide();
+// for testing only
+$("#trigger").on("click",function(){
+    scoreAninmation();
+});
 // onclick event to hide the splash screen, unhide game content and start the game
 $(".categoryBtn").on("click", function(e){
     $("#splash").addClass("hidden");
@@ -46,8 +50,7 @@ $(".categoryBtn").on("click", function(e){
     categorySelected++;
     time = origTime;
     startRound();
-});
-   
+});   
     //change bg color when radio is selected
     $('#answerRow input:radio').change(function() {
       // Only remove the class in the specific div that contains the radio
@@ -61,7 +64,6 @@ $(".categoryBtn").on("click", function(e){
         $(this).addClass('highlight');
         $(this).children("input[type=radio]").prop("checked", true);
     });
-
     function startTimer(){
         if (!clockRunning) {
             clockRunning = true;
@@ -88,8 +90,7 @@ $(".categoryBtn").on("click", function(e){
         });
         askQuestion();
         $("#timer").text(time);
-        startTimer();
-        
+        startTimer();        
     }
     // update HTML with trivia question and answers
     function askQuestion() {
@@ -106,10 +107,8 @@ $(".categoryBtn").on("click", function(e){
         questionRef.on('value', snap => $("#question").text(snap.val()));
         // set the answer to the answer variable 
         answerRef.on('value', function(snap){
-            answer = snap.val();           
-                
-        });
-        
+            answer = snap.val();                    
+        });       
     }
     // check answer selected and then fire resetQuestion function
     function checkResponse(){
@@ -139,10 +138,14 @@ $(".categoryBtn").on("click", function(e){
     }
     // function to add score based on streak value and update fa-fire CSS
     function addScore(){        
-        if(streak > 3) {
+        if(streak > 4) {
+            $("#scoreMultiplier").text("5");
+            scoreAninmation();  
             score = score + 5;             
         }
         else if(streak == 4){
+            $("#scoreMultiplier").text("2");
+            scoreAninmation();  
             score = score + 2;
             setTimeout(function(){
                 $(".fa-fire").removeClass("heatMed");
@@ -150,6 +153,8 @@ $(".categoryBtn").on("click", function(e){
             }, 1500);           
         }
         else if(streak == 3) {
+            $("#scoreMultiplier").text("1.5");
+            scoreAninmation();    
             score = score + 1.5;
             setTimeout(function(){
                 $(".fa-fire").removeClass("heatLo");
@@ -158,14 +163,26 @@ $(".categoryBtn").on("click", function(e){
         }
         else if(streak == 2) {
             $(".fa-fire").removeClass("deactive");
-            $(".fa-fire").addClass("heatLo");            
+            $(".fa-fire").addClass("heatLo");                   
             score = score + 1;
         }
         else {
             score = score + 1;
         }
     }
-    function resetQuestion() {
+    // function to add CSS animation to slide multiplier and fire fade in/out
+    function scoreAninmation() {
+        $("#scoreAnim").addClass("floatScore");   
+        fadeInAndOut();
+    };
+    // function to fade in/out slide animation
+    function fadeInAndOut(){
+        $("#scoreAnim").fadeIn(100,function(){
+            var $this = $(this);
+            $this.fadeOut(1000);        
+        }); 
+    }
+    function resetQuestion() {        
         $('.answers').children("span").removeClass("correct");
         $('.answers').children("span").removeClass("wrong");
         $('.answers').children("span").removeClass("unanswered");
@@ -181,8 +198,7 @@ $(".categoryBtn").on("click", function(e){
             }
         } else {
             endGame();
-        }      
-        
+        }              
     }
     // function fired at the end of each category
     function endRound() {
