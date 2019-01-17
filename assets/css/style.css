@@ -177,9 +177,9 @@ h1 {
 }
 @media only screen and (max-width: 400px) {
     .logo-text {
-      font-size: 1.5rem;
+      font-size: 1.33333rem;
     }
     .logo-img {
-        width: 80px;
+        width: 75px;
     }
   }
