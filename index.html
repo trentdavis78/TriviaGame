@@ -17,11 +17,10 @@
 <div class="container" id="main-content">
     <nav class="navbar navbar-expand-lg bg-theme">
             <a class="navbar-brand" href="#"><img class="img-fluid" src="assets/images/logo.svg"><span class="logo-text">Trivia</span></a>
-                <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#"><i data-toggle="modal" data-target="#instructModal" title="How to Play" class="fas fa-question-circle fa-lg"></i><span class="sr-only">(current)</span></a>
-                </li>                    
-                </ul>
+            <div class="ml-auto icons">                   
+                    <i class="fas fa-fire fa-lg mr-3 deactive"></i>
+                    <i data-toggle="modal" data-target="#instructModal" title="How to Play" class="fas fa-question-circle fa-lg"></i>
+            </div>
     </nav>
 <!-- Modal -->
 <div class="modal fade" id="instructModal" tabindex="-1" role="dialog" aria-labelledby="instructModalLabel" aria-hidden="true">
@@ -119,13 +118,13 @@
                     <h1>High Scores</h1>
                     <table class="table table-striped">
                         <tr>
-                            <td class="rank">#1</td><td class="playerName" id="p0">&nbsp;</td><td id="p0score">&nbsp;</td>
+                            <td class="rank">#1</td><td class="playerName" id="p0">&nbsp;</td><td class="playerScore" id="p0score">&nbsp;</td>
                         </tr>
                         <tr>
-                            <td class="rank">#2</td><td class="playerName" id="p1">&nbsp;</td><td id="p1score">&nbsp;</td>
+                            <td class="rank">#2</td><td class="playerName" id="p1">&nbsp;</td><td class="playerScore" id="p1score">&nbsp;</td>
                         </tr>
                         <tr>
-                            <td class="rank">#3</td><td class="playerName" id="p2">&nbsp;</td><td id="p2score">&nbsp;</td>
+                            <td class="rank">#3</td><td class="playerName" id="p2">&nbsp;</td><td class="playerScore" id="p2score">&nbsp;</td>
                         </tr>
                     </table>           
             </div>            

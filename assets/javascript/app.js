@@ -89,6 +89,7 @@ $(".categoryBtn").on("click", function(e){
         askQuestion();
         $("#timer").text(time);
         startTimer();
+        
     }
     // update HTML with trivia question and answers
     function askQuestion() {
@@ -116,18 +117,53 @@ $(".categoryBtn").on("click", function(e){
         if(response){
             if(response == answer ) {
                $("#answer-"+response).addClass("correct");
-                wins++;           
-                score = score + 1; 
+                wins++;  
+                streak++         
+                addScore();
             } else {
                 $("#answer-"+response).addClass("wrong");
                 $("#answer-"+answer).addClass("correct unanswered");  
-                losses++;               
+                $(".fa-fire").removeClass("heatHi heatMed heatLo");
+                $(".fa-fire").addClass("deactive");
+                losses++;   
+                streak = 0;            
             }
         } else {
             $("#answer-"+answer).addClass("correct unanswered");  
             unanswered++;
+            streak = 0;
+            $(".fa-fire").addClass("deactive");
+            $(".fa-fire").removeClass("heatHi heatMed heatLo");
         }        
         setTimeout(resetQuestion, 1500);
+    }
+    // function to add score based on streak value and update fa-fire CSS
+    function addScore(){        
+        if(streak > 3) {
+            score = score + 5;             
+        }
+        else if(streak == 4){
+            score = score + 2;
+            setTimeout(function(){
+                $(".fa-fire").removeClass("heatMed");
+                $(".fa-fire").addClass("heatHi");
+            }, 1500);           
+        }
+        else if(streak == 3) {
+            score = score + 1.5;
+            setTimeout(function(){
+                $(".fa-fire").removeClass("heatLo");
+                $(".fa-fire").addClass("heatMed");
+            }, 1500);            
+        }
+        else if(streak == 2) {
+            $(".fa-fire").removeClass("deactive");
+            $(".fa-fire").addClass("heatLo");            
+            score = score + 1;
+        }
+        else {
+            score = score + 1;
+        }
     }
     function resetQuestion() {
         $('.answers').children("span").removeClass("correct");
@@ -179,7 +215,7 @@ $(".categoryBtn").on("click", function(e){
         $("#leaderboard").removeClass("hidden");
         $("#gameContent").addClass("hidden");   
         $("#endRound").addClass("hidden");   
-        $("#newHighScore").addClass("hidden"); 
+        $("#newHighScore").addClass("hidden");        
     }
     // click event for Next Category button
     $("#nextCategory").on("click", function(){
@@ -188,8 +224,11 @@ $(".categoryBtn").on("click", function(e){
     // function to Try Again and start over
     function startOver() {
         score = 0;        
-        categorySelected = 0;        
+        categorySelected = 0;    
+        streak = 0;    
         $("#endGame").addClass("hidden");  
+        $(".fa-fire").addClass("deactive");
+        $(".fa-fire").removeClass("heatHi heatMed heatLo");
         restartGame();
     }
     // click event for Try Again button
