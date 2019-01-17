@@ -12,8 +12,13 @@
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Prompt|Sonsie+One" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />    
+    <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/particles.js"></script>
 </head>
 <body>
+<div id="particles-js"></div>
 <div class="container" id="main-content">
     <nav class="navbar navbar-expand-lg bg-theme">
             <a id="trigger" class="navbar-brand" href="#">
@@ -26,6 +31,7 @@
                     <i data-toggle="modal" data-target="#instructModal" title="How to Play" class="fas fa-question-circle fa-lg"></i>
             </div>
     </nav>
+    
 <!-- Modal -->
 <div class="modal fade" id="instructModal" tabindex="-1" role="dialog" aria-labelledby="instructModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -137,13 +143,13 @@
             </div>            
     </div>
 </div>
-
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">Made with &hearts; in Round Rock, TX<br/>&copy; Copyright 2019</span>
+    </div>
+</footer>
 <!-- begin js files -->
-<script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+
   
 <script src="assets/javascript/app.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" 

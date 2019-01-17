@@ -1,5 +1,7 @@
 $(document).ready(function() {       
-  // Initialize Firebase
+// start particles.js
+particlesJS.load('particles-js', 'assets/javascript/particles.json');
+// Initialize Firebase
 var config = {
     apiKey: "AIzaSyARgHGjUoNIXG9BTX096kVLoT5Md_HmKQo",
     authDomain: "trivia-game-ec53a.firebaseapp.com",
@@ -344,6 +346,10 @@ $("#finalAnswer").on('click', function(){
     function updateHighScore(path, data) {
         var leaderRef = firebase.database().ref().child("highscores");
         leaderRef.child(path).update(data);
+    }
+    // link to open modal via /index.html#instructModal 
+    if(window.location.href.indexOf('#instructModal') != -1) {
+        $('#instructModal').modal('show');    
     }
   });
   
