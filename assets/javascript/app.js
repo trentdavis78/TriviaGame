@@ -51,19 +51,19 @@ $(".categoryBtn").on("click", function(e){
     time = origTime;
     startRound();
 });   
-    //change bg color when radio is selected
-    $('#answerRow input:radio').change(function() {
-      // Only remove the class in the specific div that contains the radio
-      $('div.highlight').removeClass('highlight');
-      $(this).closest('.answers').addClass('highlight');
-    });
-    // allow containing div to check radio button and change highlight class --> for mobile functionality
-    $('.answers').click( function(){
-        $('.answers').removeClass('highlight');
-        $('.answers').children("input[type=radio]").prop("checked", false);
-        $(this).addClass('highlight');
-        $(this).children("input[type=radio]").prop("checked", true);
-    });
+//change bg color when radio is selected
+$('#answerRow input:radio').change(function() {
+    // Only remove the class in the specific div that contains the radio
+    $('div.highlight').removeClass('highlight');
+    $(this).closest('.answers').addClass('highlight');
+});
+// allow containing div to check radio button and change highlight class --> for mobile functionality
+$('.answers').click( function(){
+    $('.answers').removeClass('highlight');
+    $('.answers').children("input[type=radio]").prop("checked", false);
+    $(this).addClass('highlight');
+    $(this).children("input[type=radio]").prop("checked", true);
+});
     function startTimer(){
         if (!clockRunning) {
             clockRunning = true;
@@ -202,6 +202,10 @@ $(".categoryBtn").on("click", function(e){
     }
     // function fired at the end of each category
     function endRound() {
+        // prevent previous answers from showing for a split second
+        for(i=0;i<4;i++){
+            $("#answer-" +i).text("");
+        }
        $("#gameContent").addClass("hidden");
        $("#endRound").removeClass("hidden");   
        $("#wins").text(wins);
