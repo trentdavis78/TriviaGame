@@ -13,7 +13,7 @@ var config = {
   firebase.initializeApp(config);
 //  game variables 
 var intervalId;
-var origTime = 4;
+var origTime = 10;
 var time;
 var clockRunning = false;
 var qNum = 0;
@@ -37,12 +37,15 @@ var scoreArr = [];
 var finalAnswer = false;
 // hide the floating score animation before the game starts
 $("#scoreAnim").hide();
-$(".fa-fire").hide();
-$(".fa-fire").removeClass("hideFire");
-$("#heatLo").addClass("heatLo");
-$("#heatMed").addClass("heatMed");
-$("#heatHi").addClass("heatHi");
-$(".deactive").show();
+function resetFireIcons(){
+    $(".fa-fire").hide();
+    $(".fa-fire").removeClass("hideFire");
+    $("#heatLo").addClass("heatLo");
+    $("#heatMed").addClass("heatMed");
+    $("#heatHi").addClass("heatHi");
+    $(".deactive").show();
+}
+resetFireIcons();
 // for testing only
 $("#trigger").on("click",function(){
     scoreAninmation();
@@ -78,9 +81,7 @@ $("#finalAnswer").on('click', function(){
         stopTimer();
         checkResponse();
         finalAnswer = true;
-    }
-   
-    
+    } 
 })
     function startTimer(){
         if (!clockRunning) {
@@ -114,10 +115,10 @@ $("#finalAnswer").on('click', function(){
     function askQuestion() {
         finalAnswer = false;
         // set reference objects
-        var dbRefObject = firebase.database().ref().child(category).child('q'+qNum);
-        var questionRef = dbRefObject.child('question');
-        var choicesRef = dbRefObject.child('choices');
-        var answerRef = dbRefObject.child('answer');                
+        var dbCatQRefObject = firebase.database().ref().child(category).child('q'+qNum);
+        var questionRef = dbCatQRefObject.child('question');
+        var choicesRef = dbCatQRefObject.child('choices');
+        var answerRef = dbCatQRefObject.child('answer');                
         // write answers to the choice radio button spans
         choicesRef.on('child_added', snap => {
             $("#answer-"+snap.key).text(snap.val());
@@ -268,8 +269,9 @@ $("#finalAnswer").on('click', function(){
         categorySelected = 0;    
         streak = 0;    
         $("#endGame").addClass("hidden");  
-        $(".fa-fire").addClass("deactive");
-        $(".fa-fire").removeClass("heatHi heatMed heatLo");
+        // $(".fa-fire").addClass("deactive");
+        // $(".fa-fire").removeClass("heatHi heatMed heatLo");
+        resetFireIcons();
         restartGame();
     }
     // click event for Try Again button
