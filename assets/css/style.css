@@ -175,3 +175,11 @@ h1 {
 .playerScore {
     min-width: 51px;
 }
+@media only screen and (max-width: 400px) {
+    .logo-text {
+      font-size: 1.5rem;
+    }
+    .logo-img {
+        width: 80px;
+    }
+  }
