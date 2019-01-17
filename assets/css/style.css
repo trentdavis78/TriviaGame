@@ -138,6 +138,9 @@ h1 {
     bottom: 70px; 
     right: 0;
 }
+.categoryBtn {
+    text-transform: capitalize;
+}
 .answers {
     max-width: 300px;   
     border-radius: 50px;  

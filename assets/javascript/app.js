@@ -13,7 +13,7 @@ var config = {
   firebase.initializeApp(config);
 //  game variables 
 var intervalId;
-var origTime = 10;
+var origTime = 3;
 var time;
 var clockRunning = false;
 var qNum = 0;
@@ -26,6 +26,9 @@ var category;
 var score = 0;
 var categorySelected = 0;
 var streak = 0;
+var categories = ["coding", "general", "movies", "sports", "music", "history", "science", "legal"];
+var selectCategory = categories;
+var uniqueCategory = [];
 // high score variables 
 var leaderScore0;
 var leaderScore1;
@@ -35,6 +38,30 @@ var leaderName1;
 var leaderName2;
 var scoreArr = [];
 var finalAnswer = false;
+function makeUniqueRandom(num, arr) {            
+    // refill the array if needed
+    if (!arr.length) {
+        for (var i = 0; i < num; i++) {
+            arr.push(i);
+        }
+    }
+    var index = Math.floor(Math.random() * arr.length);
+    var val = arr[index];
+    // now remove that value from the array
+    arr.splice(index, 1);
+    return val;
+} 
+function writeCategories() {
+    for(i=0; i< 4; i++){       
+        var ranNum = makeUniqueRandom(selectCategory.length,uniqueCategory);
+        var isDisabled = $("#categoryBtn-" + i).attr("disabled");
+        if(!isDisabled) {
+           $("#categoryBtn-" + i).text(selectCategory[ranNum]); 
+           $("#categoryBtn-" + i).attr("value", selectCategory[ranNum]); 
+        }        // console.log(selectCategory[ranNum]);
+    }
+}
+writeCategories();
 // hide the floating score animation before the game starts
 $("#scoreAnim").hide();
 function resetFireIcons(){
@@ -142,8 +169,7 @@ $("#finalAnswer").on('click', function(){
             } else {
                 $("#answer-"+response).addClass("wrong");
                 $("#answer-"+answer).addClass("correct unanswered");  
-                $(".fa-fire").removeClass("heatHi heatMed heatLo");
-                $(".fa-fire").addClass("deactive");
+                resetFireIcons()
                 losses++;   
                 streak = 0;            
             }
@@ -151,8 +177,7 @@ $("#finalAnswer").on('click', function(){
             $("#answer-"+answer).addClass("correct unanswered");  
             unanswered++;
             streak = 0;
-            $(".fa-fire").addClass("deactive");
-            $(".fa-fire").removeClass("heatHi heatMed heatLo");
+            resetFireIcons();
         }        
         setTimeout(resetQuestion, 1500);
     }
@@ -204,7 +229,9 @@ $("#finalAnswer").on('click', function(){
             $this.fadeOut(1000);        
         }); 
     }
-    function resetQuestion() {        
+    function resetQuestion() {     
+        removeDisabledCategory();   
+        writeCategories();
         $('.answers').children("span").removeClass("correct");
         $('.answers').children("span").removeClass("wrong");
         $('.answers').children("span").removeClass("unanswered");
@@ -221,6 +248,16 @@ $("#finalAnswer").on('click', function(){
         } else {
             endGame();
         }              
+    }
+    function removeDisabledCategory() {
+        for(i=0; i < 4; i++){
+            var isDisabled = $("#categoryBtn-" + i).attr("disabled");
+            if(isDisabled) {
+                var c = $("#categoryBtn-" + i).attr("value");
+                var index = selectCategory.indexOf(c);
+                if (index !== -1) selectCategory.splice(index, 1);
+            }
+        }        
     }
     // function fired at the end of each category
     function endRound() {
@@ -268,9 +305,9 @@ $("#finalAnswer").on('click', function(){
         score = 0;        
         categorySelected = 0;    
         streak = 0;    
+        selectCategory = categories;
+        finalAnswer = false;
         $("#endGame").addClass("hidden");  
-        // $(".fa-fire").addClass("deactive");
-        // $(".fa-fire").removeClass("heatHi heatMed heatLo");
         resetFireIcons();
         restartGame();
     }
