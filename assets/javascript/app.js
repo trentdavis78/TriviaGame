@@ -32,6 +32,7 @@ var leaderName0;
 var leaderName1;
 var leaderName2;
 var scoreArr = [];
+var finalAnswer = false;
 // hide the floating score animation before the game starts
 $("#scoreAnim").hide();
 // for testing only
@@ -64,9 +65,14 @@ $('.answers').click( function(){
     $(this).addClass('highlight');
     $(this).children("input[type=radio]").prop("checked", true);
 });
-$("#finalAnswer").on('click', function(){
-    stopTimer();
-    checkResponse();
+$("#finalAnswer").on('click', function(){    
+    if(!finalAnswer){
+        stopTimer();
+        checkResponse();
+        finalAnswer = true;
+    }
+   
+    
 })
     function startTimer(){
         if (!clockRunning) {
@@ -98,6 +104,7 @@ $("#finalAnswer").on('click', function(){
     }
     // update HTML with trivia question and answers
     function askQuestion() {
+        finalAnswer = false;
         // set reference objects
         var dbRefObject = firebase.database().ref().child(category).child('q'+qNum);
         var questionRef = dbRefObject.child('question');
