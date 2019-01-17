@@ -175,11 +175,6 @@ h1 {
 .playerScore {
     min-width: 51px;
 }
-/* @media only screen and (max-width: 400px) {
-    .logo-text {
-      font-size: 1.33333rem;
-    }
-    .logo-img {
-        width: 75px;
-    }
-  } */
+.finalAnswer {
+    max-width: 300px;
+}

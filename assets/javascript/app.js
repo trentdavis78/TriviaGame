@@ -64,6 +64,10 @@ $('.answers').click( function(){
     $(this).addClass('highlight');
     $(this).children("input[type=radio]").prop("checked", true);
 });
+$("#finalAnswer").on('click', function(){
+    stopTimer();
+    checkResponse();
+})
     function startTimer(){
         if (!clockRunning) {
             clockRunning = true;
