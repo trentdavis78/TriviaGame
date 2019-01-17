@@ -50,6 +50,17 @@ h1 {
     padding-left: 5px;
    
 }
+.icons {
+    position: relative;
+}
+.fa-fire {
+    position: absolute;
+    right: 20px;
+    top: 4px;
+}
+.fa-fire.hideFire {
+    color: #36399a;
+}
 .fa-fire.deactive {
     color: #7175DB;
     opacity: .2;
@@ -60,13 +71,14 @@ h1 {
     
 }
 @keyframes floatScore {
-    0% { right: 0px;}
-    100% { right: 50px;}
+    0% { right: 20px;}
+    100% { right: 70px;}
     
 }
 .scoreAnim {
     color: #36399a;    
     position: relative;
+    right: 20px;
 }
 .floatScore {
     color: #39FF14;

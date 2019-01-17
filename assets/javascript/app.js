@@ -37,6 +37,12 @@ var scoreArr = [];
 var finalAnswer = false;
 // hide the floating score animation before the game starts
 $("#scoreAnim").hide();
+$(".fa-fire").hide();
+$(".fa-fire").removeClass("hideFire");
+$("#heatLo").addClass("heatLo");
+$("#heatMed").addClass("heatMed");
+$("#heatHi").addClass("heatHi");
+$(".deactive").show();
 // for testing only
 $("#trigger").on("click",function(){
     scoreAninmation();
@@ -161,8 +167,8 @@ $("#finalAnswer").on('click', function(){
             scoreAninmation();  
             score = score + 2;
             setTimeout(function(){
-                $(".fa-fire").removeClass("heatMed");
-                $(".fa-fire").addClass("heatHi");
+                $("#heatMed").fadeOut(1000);
+                $("#heatHi").fadeIn(1000);
             }, 1500);           
         }
         else if(streak == 3) {
@@ -170,13 +176,15 @@ $("#finalAnswer").on('click', function(){
             scoreAninmation();    
             score = score + 1.5;
             setTimeout(function(){
-                $(".fa-fire").removeClass("heatLo");
-                $(".fa-fire").addClass("heatMed");
+                $("#heatLo").fadeOut(1000);
+                $("#heatMed").fadeIn(1000);
             }, 1500);            
         }
         else if(streak == 2) {
-            $(".fa-fire").removeClass("deactive");
-            $(".fa-fire").addClass("heatLo");                   
+            // $(".fa-fire").removeClass("deactive");
+            // $(".fa-fire").addClass("heatLo");            
+            $(".deactive").fadeOut(1000)
+            $("#heatLo").fadeIn(1000)       
             score = score + 1;
         }
         else {
