@@ -62,32 +62,19 @@ function writeCategories() {
         }        // console.log(selectCategory[ranNum]);
     }
 }
+// initial game funtions 
 writeCategories();
-// hide the floating score animation before the game starts
-$("#scoreAnim").hide();
-function resetFireIcons(){
-    $(".fa-fire").hide();
-    $(".fa-fire").removeClass("hideFire");
-    $("#heatLo").addClass("heatLo");
-    $("#heatMed").addClass("heatMed");
-    $("#heatHi").addClass("heatHi");
-    $(".deactive").show();
-}
-// hide the floating score animation before the game starts
-$("#scoreAnim").hide();
-function resetFireIcons(){
-    $(".fa-fire").hide();
-    $(".fa-fire").removeClass("hideFire");
-    $("#heatLo").addClass("heatLo");
-    $("#heatMed").addClass("heatMed");
-    $("#heatHi").addClass("heatHi");
-    $(".deactive").show();
-}
 resetFireIcons();
-// for testing only
-$("#trigger").on("click",function(){
-    scoreAninmation();
-});
+// hide the floating score animation before the game starts
+$("#scoreAnim").hide();
+function resetFireIcons(){
+    $(".fa-fire").hide();
+    $(".fa-fire").removeClass("hideFire");
+    $("#heatLo").addClass("heatLo");
+    $("#heatMed").addClass("heatMed");
+    $("#heatHi").addClass("heatHi");
+    $(".deactive").show();
+}
 // onclick event to hide the splash screen, unhide game content and start the game
 $(".categoryBtn").on("click", function(e){
     $("#splash").addClass("hidden");
@@ -109,11 +96,13 @@ $('#answerRow input:radio').change(function() {
 });
 // allow containing div to check radio button and change highlight class --> for mobile functionality
 $('.answers').click( function(){
+    $("#finalAnswer").show();
     $('.answers').removeClass('highlight');
     $('.answers').children("input[type=radio]").prop("checked", false);
     $(this).addClass('highlight');
     $(this).children("input[type=radio]").prop("checked", true);
 });
+// stop the timer to end the round when you think you know the correct answer
 $("#finalAnswer").on('click', function(){    
     if(!finalAnswer){
         stopTimer();
@@ -154,6 +143,7 @@ $("#finalAnswer").on('click', function(){
     }
     // update HTML with trivia question and answers
     function askQuestion() {
+        $("#finalAnswer").hide();
         finalAnswer = false;
         // set reference objects
         var dbCatQRefObject = firebase.database().ref().child(category).child('q'+qNum);
@@ -248,6 +238,7 @@ $("#finalAnswer").on('click', function(){
     function resetQuestion() {     
         removeDisabledCategory();   
         writeCategories();
+        $("#finalAnswer").hide();
         $('.answers').children("span").removeClass("correct");
         $('.answers').children("span").removeClass("wrong");
         $('.answers').children("span").removeClass("unanswered");
@@ -308,7 +299,8 @@ $("#finalAnswer").on('click', function(){
         qNum = 0;
         wins = 0;
         losses = 0;
-        unanswered = 0;        
+        unanswered = 0; 
+        $("#finalAnswer").hide();       
         $("#splash").removeClass("hidden");
         $("#leaderboard").removeClass("hidden");
         $("#gameContent").addClass("hidden");   
