@@ -27,7 +27,7 @@ var score = 0;
 var categorySelected = 0;
 var streak = 0;
 var categories = ["coding", "general", "movies", "sports", "music", "history", "science", "legal"];
-var selectCategory = categories;
+var selectCategory = categories.splice();
 var uniqueCategory = [];
 // high score variables 
 var leaderScore0;
@@ -160,27 +160,29 @@ $("#finalAnswer").on('click', function(){
     // check answer selected and then fire resetQuestion function
     function checkResponse(){
         var response = $("input[name='answers']:checked").val();
-        if(response){
-            if(response == answer ) {
-               $("#answer-"+response).addClass("correct");
-                wins++;  
-                streak++         
-                addScore();
-            } else {
-                $("#answer-"+response).addClass("wrong");
-                $("#answer-"+answer).addClass("correct unanswered");  
-                resetFireIcons()
-                losses++;   
-                streak = 0;            
+        if(!finalAnswer) {
+                if(response){
+                    if(response == answer ) {
+                    $("#answer-"+response).addClass("correct");
+                        wins++;  
+                        streak++         
+                        addScore();
+                    } else {
+                        $("#answer-"+response).addClass("wrong");
+                        $("#answer-"+answer).addClass("correct unanswered");  
+                        resetFireIcons()
+                        losses++;   
+                        streak = 0;            
+                    }
+                } else {
+                    $("#answer-"+answer).addClass("correct unanswered");  
+                    unanswered++;
+                    streak = 0;
+                    resetFireIcons();
+                }        
+                setTimeout(resetQuestion, 1500);
             }
-        } else {
-            $("#answer-"+answer).addClass("correct unanswered");  
-            unanswered++;
-            streak = 0;
-            resetFireIcons();
         }        
-        setTimeout(resetQuestion, 1500);
-    }
     // function to add score based on streak value and update fa-fire CSS
     function addScore(){        
         if(streak > 4) {
@@ -306,7 +308,7 @@ $("#finalAnswer").on('click', function(){
         categorySelected = 0;    
         streak = 0;           
         finalAnswer = false;
-        selectCategory = categories;
+        selectCategory = categories.splice();
         uniqueCategory = [];
         $("#endGame").addClass("hidden");  
         resetFireIcons();
