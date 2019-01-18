@@ -222,31 +222,6 @@ h1 {
     height: 60px;    
     background-color: #36399a;
     text-align: center;   
-    margin-top: 150px;
-}
-/* @media only screen and (min-width: 769px) {
-    .footer  {
-      position: fixed;
-      bottom: 0;
-    }
-  }
-@media only screen and (min-width: 769px) {
-    .footer  {
-      position: fixed;
-      bottom: 0;
-    }
-  } */
+    margin-top: 100px;
     
-  @media screen and (min-width: 400px) {
-    .footer {
-      
-    }
-  }
-  
-  @media screen and (min-width: 800px) {
-    .footer {
-        position: fixed;
-        bottom: 0;
-      
-    }
-  }
+}
