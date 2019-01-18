@@ -383,6 +383,7 @@ $("#finalAnswer").on('click', function(){
     // click event for Add button on New Hire Score div
      $("#addHighScore").on('click', function(){
          // get input value from text field
+         $.confetti.stop();
         var hsName = $("#newHighScoreName").val();        
         // replace placeholder for hsName in scoreArr with text field value
         for(var i=0; i < scoreArr.length; i++) {            
