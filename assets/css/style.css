@@ -116,7 +116,37 @@ h1 {
     background: #fff;
     border-radius: 10px;
 }
-
+#newHighScore h1 {
+    font-family: 'Erica One', cursive;
+}
+.hsOutline {
+    text-shadow:
+    -1px -1px 0 #1c1b72,
+    1px -1px 0 #1c1b72,
+    -1px 1px 0 #1c1b72,
+    1px 1px 0 #1c1b72;  
+}
+.hsRed {
+    color: #ED2939;    
+}
+.hsYellow {
+    color: #FED030;    
+}
+#newHighScore p {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #1c1b72; 
+}
+#newHighScore input {
+    font-family: 'Prompt', sans-serif;
+    width: 200px;
+    color: #1c1b72;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.charLimit {
+    font-size: .75rem;
+}
 .timerRow {
     position: relative;
 }

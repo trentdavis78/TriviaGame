@@ -27,7 +27,7 @@ var score = 0;
 var categorySelected = 0;
 var streak = 0;
 var categories = ["coding", "general", "movies", "sports", "music", "history", "science", "legal"];
-var selectCategory = categories.splice();
+var selectCategory = Array.from(categories);
 var uniqueCategory = [];
 // high score variables 
 var leaderScore0;
@@ -38,6 +38,7 @@ var leaderName1;
 var leaderName2;
 var scoreArr = [];
 var finalAnswer = false;
+// 
 function makeUniqueRandom(num, arr) {            
     // refill the array if needed
     if (!arr.length) {
@@ -62,6 +63,16 @@ function writeCategories() {
     }
 }
 writeCategories();
+// hide the floating score animation before the game starts
+$("#scoreAnim").hide();
+function resetFireIcons(){
+    $(".fa-fire").hide();
+    $(".fa-fire").removeClass("hideFire");
+    $("#heatLo").addClass("heatLo");
+    $("#heatMed").addClass("heatMed");
+    $("#heatHi").addClass("heatHi");
+    $(".deactive").show();
+}
 // hide the floating score animation before the game starts
 $("#scoreAnim").hide();
 function resetFireIcons(){
@@ -281,11 +292,14 @@ $("#finalAnswer").on('click', function(){
     function endGame() {
         $("#gameContent").addClass("hidden");
         $("#endGame").removeClass("hidden");   
-        $("#finalScore").text(score);       
+        $("#finalScore").text(score);      
+        $("#leaderboard").removeClass("hidden");
         // check to see if a new high score has been reached           
         if(score > parseInt(leaderScore2)) {
+            $.confetti.start();
+            $("#startOver").addClass("hidden"); 
             $("#newHighScore").removeClass("hidden");             
-            sortHighScore()
+            sortHighScore();
         }
     }
     // function to reset game for new category 
@@ -299,7 +313,8 @@ $("#finalAnswer").on('click', function(){
         $("#leaderboard").removeClass("hidden");
         $("#gameContent").addClass("hidden");   
         $("#endRound").addClass("hidden");   
-        $("#newHighScore").addClass("hidden");        
+        $("#newHighScore").addClass("hidden");       
+        $("#startOver").removeClass("hidden");  
     }
     // click event for Next Category button
     $("#nextCategory").on("click", function(){
@@ -311,7 +326,7 @@ $("#finalAnswer").on('click', function(){
         categorySelected = 0;    
         streak = 0;           
         finalAnswer = false;
-        selectCategory = categories.splice();
+        selectCategory = Array.from(categories);
         uniqueCategory = [];
         $("#endGame").addClass("hidden");  
         resetFireIcons();

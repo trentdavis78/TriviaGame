@@ -10,7 +10,7 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Prompt|Sonsie+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Prompt|Sonsie+One|Erica+One" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />    
     <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
@@ -87,11 +87,12 @@
             <button id="startOver" class="btn btn-success btn-lg">Try Again?</button>
     </div>
     <div id="newHighScore" class="hidden">
-        <h1>New High Score!</h1>
-        <p>Enter your name:</p>
+        <h1>New <span class="hsRed hsOutline">High </span><span class="hsYellow hsOutline">Score</span>!</h1>
+        <p>Enter your first name:</p>
         <div class="form-row mx-auto">
-            <input type="text" id="newHighScoreName" />
-            <button type="button" class="btn btn-theme" id="addHighScore">Add</button>      
+            <input maxlength="12" class="text-center" type="text" id="newHighScoreName" />
+            <button type="button" class="btn btn-theme" id="addHighScore">Add</button>   
+            <span class="charLimit mx-auto pt-1">Limit 12 characters</span>   
         </div>           
     </div>
 
@@ -166,7 +167,7 @@
 integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" 
 integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
+<script src="assets/javascript/jquery.confetti.js"></script>
 <!-- end js files -->
 </body>
 </html>
