@@ -108,6 +108,9 @@ $("#finalAnswer").on('click', function(){
         stopTimer();
         checkResponse();
         finalAnswer = true;
+        // prevent accidental double click 
+        $("#finalAnswer").attr("disabled", "disabled");
+        setTimeout(function(){ $("#finalAnswer").removeAttr("disabled") }, 3000)
     } 
 })
     function startTimer(){

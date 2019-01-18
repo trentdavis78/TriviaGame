@@ -86,11 +86,13 @@
             <h2 id="finalScore"></h2>
             <button id="startOver" class="btn btn-success btn-lg">Try Again?</button>
     </div>
-    <div id="newHighScore" class="hidden">
+    <div id="newHighScore" class="">
         <h1>New High Score!</h1>
         <p>Enter your name:</p>
-        <input type="text" id="newHighScoreName" />
-        <button type="button" class="btn btn-theme" id="addHighScore">Add</button>         
+        <div class="form-row mx-auto">
+            <input type="text" id="newHighScoreName" />
+            <button type="button" class="btn btn-theme" id="addHighScore">Add</button>      
+        </div>           
     </div>
 
         <div id="gameContent" class="hidden">
@@ -158,7 +160,6 @@
 
   
 <script src="assets/javascript/app.js"></script>
-<script src="assets/javascript/firebase.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" 
 integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" 
