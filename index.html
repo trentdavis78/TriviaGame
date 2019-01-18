@@ -86,7 +86,7 @@
             <h2 id="finalScore"></h2>
             <button id="startOver" class="btn btn-success btn-lg">Try Again?</button>
     </div>
-    <div id="newHighScore" class="">
+    <div id="newHighScore" class="hidden">
         <h1>New High Score!</h1>
         <p>Enter your name:</p>
         <div class="form-row mx-auto">
@@ -95,43 +95,43 @@
         </div>           
     </div>
 
-        <div id="gameContent" class="hidden">
-                <div class="jumbotron jumbotron-fluid">
-                    <div class="container">
-                        <h1 class="text-center" id="question"></h1>            
-                    </div>         
+    <div id="gameContent" class="hidden">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="text-center" id="question"></h1>            
+                </div>         
+            </div>
+            <div class="row timerRow">
+                <div class="col-12 ">
+                        <div id="timer"></div>
                 </div>
-                <div class="row timerRow">
-                    <div class="col-12 ">
-                            <div id="timer"></div>
+            </div>    
+            <div class="row">
+            <div id="answerRow" class="col-12">
+                    <div class="answers mx-auto my-2 p-2">              
+                        <input class="mr-2" type="radio" name="answers" value="0">
+                        <span id="answer-0" class="" ></span>
                     </div>
-                </div>    
-                <div class="row">
-                <div id="answerRow" class="col-12">
-                        <div class="answers mx-auto my-2 p-2">              
-                            <input class="mr-2" type="radio" name="answers" value="0">
-                            <span id="answer-0" class="" ></span>
-                        </div>
-                        <div class="answers mx-auto my-2 p-2">              
-                                <input class="mr-2" type="radio" name="answers" value="1">
-                                <span id="answer-1" class=""></span>
-                        </div>
-                        <div class="answers mx-auto my-2 p-2">              
-                                <input class="mr-2" type="radio" name="answers" value="2">
-                                <span id="answer-2" class=""></span>
-                        </div>
-                        <div class="answers mx-auto my-2 p-2">              
-                                <input class="mr-2" type="radio" name="answers" value="3">
-                                <span id="answer-3" class=""></span>
-                        </div>
-                        <div class="finalAnswer mx-auto text-center">
-                            <button class="btn-danger btn mt-4" id="finalAnswer">Final Answer</button>
-                        </div>                   
-                </div>
-        </div>
+                    <div class="answers mx-auto my-2 p-2">              
+                            <input class="mr-2" type="radio" name="answers" value="1">
+                            <span id="answer-1" class=""></span>
+                    </div>
+                    <div class="answers mx-auto my-2 p-2">              
+                            <input class="mr-2" type="radio" name="answers" value="2">
+                            <span id="answer-2" class=""></span>
+                    </div>
+                    <div class="answers mx-auto my-2 p-2">              
+                            <input class="mr-2" type="radio" name="answers" value="3">
+                            <span id="answer-3" class=""></span>
+                    </div>
+                    <div class="finalAnswer mx-auto text-center">
+                        <button class="btn-danger btn mt-4" id="finalAnswer">Final Answer</button>
+                    </div>                   
+            </div>
     </div>
 </div>
-<div class="container">
+
+
     <div class="row">
             <div id="leaderboard">        
                     <h1>High Scores</h1>
@@ -148,13 +148,15 @@
                     </table>           
             </div>            
     </div>
-</div>
 
-    <footer class="footer py-2">
-            <div class="container">
-                <span class="text-muted">Made with &hearts; in Round Rock, TX<br/>&copy; Copyright 2019</span>
-            </div>
-    </footer>
+
+</div>
+<footer class="footer py-2">
+    <div class="container">
+        <span class="text-muted">Made with &hearts; in Round Rock, TX<br/>&copy; Copyright 2019</span>
+    </div>
+</footer>
+
 
 <!-- begin js files -->
 
