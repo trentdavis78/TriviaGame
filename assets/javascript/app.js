@@ -38,7 +38,7 @@ var leaderName1;
 var leaderName2;
 var scoreArr = [];
 var finalAnswer = false;
-// 
+// function to assure random numbers are unique
 function makeUniqueRandom(num, arr) {            
     // refill the array if needed
     if (!arr.length) {
