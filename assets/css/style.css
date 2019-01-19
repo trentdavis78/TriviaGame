@@ -261,6 +261,6 @@ h1 {
     margin-top: 100px;
     
 }
-.modal-title {
-
+h3.modal-title {
+    font-weight: bold;
 }
