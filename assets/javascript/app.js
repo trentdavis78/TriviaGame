@@ -55,13 +55,15 @@ function makeUniqueRandom(num, arr) {
 function writeCategories() {
     for(i=0; i< 4; i++){       
         var ranNum = makeUniqueRandom(selectCategory.length,uniqueCategory);
+        var rawText = selectCategory[ranNum];
         var isDisabled = $("#categoryBtn-" + i).attr("disabled");
             if(!isDisabled) {
-            $("#categoryBtn-" + i).attr("value", selectCategory[ranNum]); 
-                if(selectCategory[ranNum].indexOf("_") == -1){
-                    $("#categoryBtn-" + i).text(selectCategory[ranNum]);
+            $("#categoryBtn-" + i).attr("value", rawText); 
+                console.log(rawText);                
+                if(rawText.indexOf("_") == -1){
+                    $("#categoryBtn-" + i).text(rawText);
                 } else {
-                    var textFormatted = selectCategory[ranNum].replace('_', ' ');
+                    var textFormatted = rawText.replace('_', ' ');
                     $("#categoryBtn-" + i).text(textFormatted); 
                 }           
             }       
