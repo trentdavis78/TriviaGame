@@ -26,6 +26,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
     color: #1c1b72;
 }
+.theme-font {
+    color: #1c1b72;
+}
 h1 {
     font-size: 1.5rem;    
     
@@ -54,7 +57,7 @@ h1 {
 .icons {
     position: relative;
 }
-.fa-fire {
+.fa-fire.game-icons {
     position: absolute;
     right: 20px;
     top: 3px;
@@ -96,6 +99,8 @@ h1 {
 }
 .fa-fire.heatHi {
     color: #ce2029;    
+}
+.fa-fire.game-icons.heatHi {
     animation-name: onfire;
     animation-duration: 1s;
     animation-iteration-count: infinite;

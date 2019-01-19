@@ -27,10 +27,10 @@
             </a>
             <div class="ml-auto icons">                         
                     <span id="scoreAnim" class="scoreAnim">+<span id="scoreMultiplier">2</span></span>              
-                    <i class="fas fa-fire fa-lg mr-3 deactive"></i>
-                    <i id="heatLo" class="fas fa-fire fa-lg mr-3 hideFire"></i>
-                    <i id="heatMed" class="fas fa-fire fa-lg mr-3 hideFire"></i>
-                    <i id="heatHi" class="fas fa-fire fa-lg mr-3 hideFire"></i>
+                    <i class="fas fa-fire game-icons fa-lg mr-3 deactive"></i>
+                    <i id="heatLo" class="fas fa-fire game-icons fa-lg mr-3 hideFire"></i>
+                    <i id="heatMed" class="fas fa-fire game-icons fa-lg mr-3 hideFire"></i>
+                    <i id="heatHi" class="fas fa-fire game-icons fa-lg mr-3 hideFire"></i>
                     <i data-toggle="modal" data-target="#instructModal" title="How to Play" class="fas fa-question-circle fa-lg"></i>
             </div>
     </nav>
@@ -46,7 +46,32 @@
                 </button>
             </div>
             <div class="modal-body">
-                This is trivia.. if you don't know how to play, just quit now. 
+               <h6>Selecting a Category</h6>
+               <hr>
+               <p>Choose a category that you feel most comfortable with. Pick wisely, when you've completed the round the previous categories may no longer be an option!</p>
+               <h6>Q&A</h6>
+               <hr>
+               <p>You will have 10 seconds to read the question and select an answer. 
+                   If you feel confident in your answer, you can click the Final Answer button to run out the clock. 
+                   Reponses will be scored in realtime as 'correct' or 'incorrect'. 
+                   If time expires and no selection has been made, the question will be scored as 'unanswered'.</p>
+               <h6>Hot Streaks</h6>
+               <hr>
+               <p> Answer consecutive trivia questions to increase your hot streak. Note: incorrect and unanswered questions will end your streak<br>
+                    <i class="fas fa-fire fa-lg m-2 deactive"></i> - No current streak <br>
+                    <i class="fas fa-fire fa-lg m-2 heatLo"> - Getting Warm.. </i><b>Answers are worth 1.5 pts.</b><br>
+                    <i class="fas fa-fire fa-lg m-2 heatMed"> - Heating Up..</i><b>Answers are worth 3 pts.</b><br>
+                    <i class="fas fa-fire fa-lg m-2 heatHi"> - You're On FIRE!</i><b>Answers are worth 5 pts.</b><br>
+
+               </p>
+               <h6>Scoring</h6>
+               <hr>
+               <p>At the end of each round you will be shown how many correct, incorrect, and unanswered questions you scored as well as your current total score. 
+                If you do not finish with a Top 3 score, you will be given the opportunity to try again.  </p>  
+               <h6>Leaderboard</h6>
+               <hr>
+               <p>If you finish with a Top 3 score, <b class="theme-font">CONGRATULATIONS!</b> You've won the game! You will be prompted to enter your <b>first name</b> onto our Leaderboard! Please limit your entry to 12 characters. 
+                </p>             
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-theme" data-dismiss="modal">Close</button>           

@@ -58,9 +58,12 @@ function writeCategories() {
         var isDisabled = $("#categoryBtn-" + i).attr("disabled");
             if(!isDisabled) {
             $("#categoryBtn-" + i).attr("value", selectCategory[ranNum]); 
-            var textFormatted = selectCategory[ranNum].replace('_', ' ');
-            $("#categoryBtn-" + i).text(textFormatted); 
-           
+                if(selectCategory[ranNum].indexOf("_") == -1){
+                    $("#categoryBtn-" + i).text(selectCategory[ranNum]);
+                } else {
+                    var textFormatted = selectCategory[ranNum].replace('_', ' ');
+                    $("#categoryBtn-" + i).text(textFormatted); 
+                }           
             }       
     }
 }
@@ -70,8 +73,8 @@ resetFireIcons();
 // hide the floating score animation before the game starts
 $("#scoreAnim").hide();
 function resetFireIcons(){
-    $(".fa-fire").hide();
-    $(".fa-fire").removeClass("hideFire");
+    $(".fa-fire.game-icons").hide();
+    $(".fa-fire.game-icons").removeClass("hideFire");
     $("#heatLo").addClass("heatLo");
     $("#heatMed").addClass("heatMed");
     $("#heatHi").addClass("heatHi");
@@ -214,9 +217,7 @@ $("#finalAnswer").on('click', function(){
                 $("#heatMed").fadeIn(1000);
             }, 1500);            
         }
-        else if(streak == 2) {
-            // $(".fa-fire").removeClass("deactive");
-            // $(".fa-fire").addClass("heatLo");            
+        else if(streak == 2) {      
             $(".deactive").fadeOut(1000)
             $("#heatLo").fadeIn(1000)       
             score = score + 1;
