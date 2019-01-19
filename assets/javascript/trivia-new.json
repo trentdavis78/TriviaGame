@@ -1,0 +1,130 @@
+{
+    "general" : {
+        "q0" : {
+            "answer" : 2,
+            "choices" : [ "Analogist", "Despise", "Nostalgia", "Sententious" ],
+            "question" : "A 'sentimentality for the past' can be defined by the word:"
+        },
+
+        "q1" : {
+            "answer" : 0,
+            "choices" : [ "Northern Arizona University", "Arizona State University", "University of Phoenix", "University of Utah" ],
+            "question" : "This school was orignally called the Northern Arizona Normal School:"
+        },
+    
+        "q2" : {
+            "answer" : 1,
+            "choices" : [ "Colt", "Glock", "Red Rider", "Kalashnikov" ],
+            "question" : "This firearm holds the namesake of its Austrian engineer founder:"
+        },
+
+        "q3" : {
+            "answer" : 3,
+            "choices" : [ "ASL", "Social Media", "Rock Climbing", "Amateur Radio" ],
+            "question" : "'Breaker 1-9' is a slang term you would hear in:"
+        },
+
+        "q4" : {
+            "answer" : 0,
+            "choices" : [ "Jehovah's Witnesses", "Mormonism", "Scientology", "Judaism" ],
+            "question" : "Religion founded in the late 1870s by Charles Taze Russell:"
+        }
+
+    },
+
+    "movies" : {
+        "q0" : {
+            "answer" : 1,
+            "choices" : [ "Native Son", "The Color Purple", "Ghost", "The Sound of Music" ],
+            "question" : "Oprah Winfrey won 'Best Actress in a Supporting Role' for this 1985 movie:"
+        },
+
+        "q1" : {
+            "answer" : 2,
+            "choices" : [ "Blow", "Edward Scissorhands", "Pirates of the Caribbean", "Jack and Jill" ],
+            "question" : "Johnny Depp stars as Jack Sparrow in:"
+        },
+
+        
+        "q2" : {
+            "answer" : 2,
+            "choices" : [ "1984", "Back to the Future II", "The Karate Kid", "Cocktail" ],
+            "question" : "Pat Morita and Elisabeth Shue co-starred in this 1984 movie:"
+        }
+    },
+    "music" : {
+        "q2" : {
+            "answer" : 2,
+            "choices" : [ "Mark David Chapman", "John Wayne Gacy", "James Earl Ray", "Lee Harvey Oswald" ],
+            "question" : "John Lennon was killed by:"
+        }
+    },
+    "history" : {
+        "q0" : {
+            "answer" : 2,
+            "choices" : [ "Boston", "Philadelphia", "Washington D.C.", "San Antonio" ],
+            "question" : "The Declaration of Independce was signed in:"
+        }
+    },
+    "science" : {
+        "q0" : {
+            "answer" : 0,
+            "choices" : [ "Mars", "Earth (eventually)", "Mercury", "Venus" ],
+            "question" : "Which is the hottest planet in the solar system?"
+        }
+    },
+    "legal" : {
+        "q0" : {
+            "answer" : 3,
+            "choices" : [ "This for that", "Quit while you're ahead", "I object, your honor", "No contest" ],
+            "question" : "Quid Pro Quo roughtly translates to:"
+        }
+    },
+    
+    "sports" : {
+        "q0" : {
+            "answer" : 3,
+            "choices" : [ "Dallas Cowboys", "N.Y. Giants", "Washington Redskins", "Buffalo Bills" ],
+            "question" : "What NFL team lost four consecutive Super Bowls?"
+        },
+        "q1" : {
+            "answer" : 0,
+            "choices" : [ "20", "22", "21", "32" ],
+            "question" : "What jersey number did Barry Sanders wear in the NFL?"
+        },
+        "q2" : {
+            "answer" : 2,
+            "choices" : [ "Alabama Crimson Tide", "New England Patriots", "Philadelphia Eagles", "Denver Broncos" ],
+            "question" : "This team won Super Bowl LII"
+        },
+        "q3" : {
+            "answer" : 0,
+            "choices" : [ "North Carolina", "Duke", "Michigan", "Texas" ],
+            "question" : "Michael Jordan went to this college:"
+        }    
+        
+    },
+
+    "coding" : {
+        "q0" : {
+            "answer" : 1,
+            "choices" : [ "Coping Skills Suck", "Cascading Style Sheets", "Create, Set, Start", "No such acronym in web dev" ],
+            "question" : "In web development, CSS stands for:"
+        }
+    },
+
+    "highscores" : {
+        "p0" : {
+            "name" : "John",
+            "score" : 0
+        },
+        "p1" : {
+            "name" : "Joe",
+            "score" : 0
+        },
+        "p2" : {
+            "name" : "Jane",
+            "score" : 0
+        }
+    }
+}
