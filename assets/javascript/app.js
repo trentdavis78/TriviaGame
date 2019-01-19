@@ -26,7 +26,7 @@ var category;
 var score = 0;
 var categorySelected = 0;
 var streak = 0;
-var categories = ["coding", "general", "movies", "sports", "music", "history", "science", "famous_dates"];
+var categories = ["coding", "general", "movies", "sports", "music", "history", "science", "musical_instruments"];
 var selectCategory = Array.from(categories);
 var uniqueCategory = [];
 // high score variables 
@@ -53,20 +53,22 @@ function makeUniqueRandom(num, arr) {
     return val;
 } 
 function writeCategories() {
-    for(i=0; i< 4; i++){       
+    for(i=0; i< 4; i++){            
         var ranNum = makeUniqueRandom(selectCategory.length,uniqueCategory);
-        var rawText = selectCategory[ranNum];
         var isDisabled = $("#categoryBtn-" + i).attr("disabled");
             if(!isDisabled) {
-            $("#categoryBtn-" + i).attr("value", rawText); 
-                console.log(rawText);                
-                if(rawText.indexOf("_") == -1){
-                    $("#categoryBtn-" + i).text(rawText);
-                } else {
-                    var textFormatted = rawText.replace('_', ' ');
-                    $("#categoryBtn-" + i).text(textFormatted); 
-                }           
-            }       
+                $("#categoryBtn-" + i).attr("value", selectCategory[ranNum]);      
+                $("#categoryBtn-" + i).text(selectCategory[ranNum]);
+            }             
+    }
+
+    removeUnderscores();
+}
+function removeUnderscores() {
+    for(i=0; i< 4; i++){
+        var catBtnText = $("#categoryBtn-" + i).text();
+        var formattedText = catBtnText.replace(/_/g, " ");
+        $("#categoryBtn-" + i).text(formattedText);
     }
 }
 // initial game funtions 
