@@ -13,7 +13,7 @@ var config = {
   firebase.initializeApp(config);
 //  game variables 
 var intervalId;
-var origTime = 3;
+var origTime = 10;
 var time;
 var clockRunning = false;
 var qNum = 0;
@@ -26,7 +26,7 @@ var category;
 var score = 0;
 var categorySelected = 0;
 var streak = 0;
-var categories = ["coding", "general", "movies", "sports", "music", "history", "science", "legal"];
+var categories = ["coding", "general", "movies", "sports", "music", "history", "science", "famous_dates"];
 var selectCategory = Array.from(categories);
 var uniqueCategory = [];
 // high score variables 
@@ -56,10 +56,12 @@ function writeCategories() {
     for(i=0; i< 4; i++){       
         var ranNum = makeUniqueRandom(selectCategory.length,uniqueCategory);
         var isDisabled = $("#categoryBtn-" + i).attr("disabled");
-        if(!isDisabled) {
-           $("#categoryBtn-" + i).text(selectCategory[ranNum]); 
-           $("#categoryBtn-" + i).attr("value", selectCategory[ranNum]); 
-        }        // console.log(selectCategory[ranNum]);
+            if(!isDisabled) {
+            $("#categoryBtn-" + i).attr("value", selectCategory[ranNum]); 
+            var textFormatted = selectCategory[ranNum].replace('_', ' ');
+            $("#categoryBtn-" + i).text(textFormatted); 
+           
+            }       
     }
 }
 // initial game funtions 
