@@ -1,15 +1,15 @@
 $(document).ready(function() {       
 // start particles.js
 particlesJS.load('particles-js', 'assets/javascript/particles.json');
-// Initialize Firebase
-var config = {
+  // Initialize Firebase
+  var config = {
     apiKey: "AIzaSyARgHGjUoNIXG9BTX096kVLoT5Md_HmKQo",
     authDomain: "trivia-game-ec53a.firebaseapp.com",
     databaseURL: "https://trivia-game-ec53a.firebaseio.com",
     projectId: "trivia-game-ec53a",
-    storageBucket: "",
+    storageBucket: "trivia-game-ec53a.appspot.com",
     messagingSenderId: "632296056982"
-};
+  };
   firebase.initializeApp(config);
 //  game variables 
 var intervalId;
