@@ -201,7 +201,7 @@
 
     "instruments" : {
         "q0" : {
-            "answer" : 1,
+            "answer" : 2,
             "choices" : [ "Harp", "Banjo", "Guitar", "Drum" ],
             "question" : "This instrument traditionally has six strings:"
         },
@@ -219,6 +219,11 @@
             "answer" : 2,
             "choices" : [ "Organ", "Metronome", "Synthesizer", "Auto Tune" ],
             "question" : "An electronic instrument used to imitate traditional musical sounds:"
+        },
+        "q4" : {
+            "answer" : 3,
+            "choices" : [ "Marimba", "Kazoo", "Flute", "Violin" ],
+            "question" : "This instrument was created by Andrea Amati in the 1500s:"
         }
     },
 
