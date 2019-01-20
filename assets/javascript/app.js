@@ -24,7 +24,7 @@ var answer;
 var questionLength = 0;
 var category;
 var score = 0;
-var categorySelected = 0;
+var questionsAnswered = 0;
 var streak = 0;
 var categories = ["entertainment", "general", "movies", "sports", "music", "geography", "instruments", "famous_dates"];
 var selectCategory = Array.from(categories);
@@ -92,8 +92,7 @@ $(".categoryBtn").on("click", function(e){
     $("#"+e.target.id).removeClass("btn-theme");  
     $("#"+e.target.id).addClass("btn-secondary");  
     $("#"+e.target.id).attr("disabled", true);      
-    category = e.target.value;
-    categorySelected++;
+    category = e.target.value;    
     time = origTime;
     startRound();
 });   
@@ -119,7 +118,7 @@ $("#finalAnswer").on('click', function(){
         finalAnswer = true;
         // prevent accidental double click 
         $("#finalAnswer").attr("disabled", "disabled");
-        setTimeout(function(){ $("#finalAnswer").removeAttr("disabled") }, 3000)
+        setTimeout(function(){ $("#finalAnswer").removeAttr("disabled") }, 2000)
     } 
 })
     function startTimer(){
@@ -172,6 +171,7 @@ $("#finalAnswer").on('click', function(){
     }
     // check answer selected and then fire resetQuestion function
     function checkResponse(){
+        questionsAnswered++;
         var response = $("input[name='answers']:checked").val();
         if(!finalAnswer) {
                 if(response){
@@ -253,7 +253,8 @@ $("#finalAnswer").on('click', function(){
         $('div.highlight').removeClass('highlight');        
         time = origTime;        
         qNum++;
-        if(categorySelected < 4){
+        console.clear();
+        if(questionsAnswered < 20){
             if(qNum < questionLength){            
                 startRound();
             } else {
@@ -322,7 +323,7 @@ $("#finalAnswer").on('click', function(){
     // function to Try Again and start over
     function startOver() {
         score = 0;        
-        categorySelected = 0;    
+        questionsAnswered = 0;    
         streak = 0;           
         finalAnswer = false;
         selectCategory = Array.from(categories);
