@@ -26,7 +26,7 @@ var category;
 var score = 0;
 var categorySelected = 0;
 var streak = 0;
-var categories = ["coding", "general", "movies", "sports", "music", "history", "science", "famous_dates"];
+var categories = ["entertainment", "general", "movies", "sports", "music", "geography", "instruments", "famous_dates"];
 var selectCategory = Array.from(categories);
 var uniqueCategory = [];
 // high score variables 
