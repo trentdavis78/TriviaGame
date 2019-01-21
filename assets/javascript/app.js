@@ -134,6 +134,7 @@ $("#finalAnswer").on('click', function(){
     function count(){
         time--;
         $("#timer").text(time);
+        // prevent click on time 0 cheat bug
         if(time < 1){
         $("#finalAnswer").attr("disabled", "disabled");
         setTimeout(function(){ $("#finalAnswer").removeAttr("disabled") }, 1001)  
