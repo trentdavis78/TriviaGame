@@ -10,7 +10,7 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Prompt|Sonsie+One|Erica+One|Great+Vibes" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Prompt|Sonsie+One|Erica+One|Great+Vibes|Niconne" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />    
     <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
@@ -35,7 +35,7 @@
             </div>
     </nav>
     
-    <!-- Modal -->
+    <!-- Begin Instructions Modal -->
     <div class="modal fade" id="instructModal" tabindex="-1" role="dialog" aria-labelledby="instructModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -79,6 +79,35 @@
             </div>
         </div>
     </div>
+    <!-- End Instructions Modal -->
+    <!-- Begin In Memoriam Modal -->
+    <div class="modal fade" id="In-Memoriam" tabindex="-1" role="dialog" aria-labelledby="memoriamModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h2 class="modal-title" id="memoriamModalLabel">In Memoriam</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <h3 id="imgHeader">Trent Davis, Sr.</h3>
+                    <div id="imgDiv">
+                        <img src="assets/images/dad.jpg" alt="In Memoriam.. Trent A. Davis Sr."/>                        
+                    </div>   
+                    <figcaption>December 15th, 1952 - January 15th, 2019</figcaption>           
+                </div>
+                <div id="memoriamContent">
+                    <p>This game and its contents are dedicated to the memory of my father, Trent A. Davis, Sr.</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                
+                </div>
+            </div>
+            </div>
+    </div>
+    <!-- End In Memoriam Modal -->
+
     <div id="splash">        
         <h1>Select Category:</h1>
         <div class="row">

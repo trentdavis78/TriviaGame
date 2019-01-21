@@ -264,3 +264,36 @@ h1 {
 h3.modal-title {
     font-weight: bold;
 }
+#memoriamModalLabel {
+    font-family: 'Great Vibes', cursive;
+    color: #212529;
+}
+#imgHeader {
+    text-align: center;
+    color: #707070;
+    font-family: 'Niconne', cursive;
+    font-size: 2.5rem;
+}
+#imgDiv {
+    margin: auto;
+    width: 200px;
+}
+#In-Memoriam img {
+    width: 200px;
+    height: auto;   
+    border-radius: 50%;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+figcaption {
+    margin-top: 10px;
+    font-size: .75rem;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+}
+#memoriamContent {
+    border-top: 1px solid #e9ecef;
+    padding: 1rem;
+    color: #707070;
+}

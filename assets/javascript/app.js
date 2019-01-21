@@ -417,8 +417,8 @@ $("#finalAnswer").on('click', function(){
         leaderRef.child(path).update(data);
     }
     // link to open modal via /index.html#instructModal 
-    if(window.location.href.indexOf('#instructModal') != -1) {
-        $('#instructModal').modal('show');    
+    if(window.location.href.indexOf('#In-Memoriam') != -1) {
+        $('#In-Memoriam').modal('show');    
     }
   });
   
