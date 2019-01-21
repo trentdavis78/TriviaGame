@@ -134,6 +134,10 @@ $("#finalAnswer").on('click', function(){
     function count(){
         time--;
         $("#timer").text(time);
+        if(time < 1){
+        $("#finalAnswer").attr("disabled", "disabled");
+        setTimeout(function(){ $("#finalAnswer").removeAttr("disabled") }, 1001)  
+        }
         if(time == 0){
             stopTimer(); 
             checkResponse();          
