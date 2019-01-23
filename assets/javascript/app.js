@@ -385,8 +385,14 @@ $("#finalAnswer").on('click', function(){
             }
         });       
     }
+    // allow enter key in the Enter your name field
+    $("#newHighScoreName").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#addHighScore").click();
+        }
+    });
     // click event for Add button on New Hire Score div
-     $("#addHighScore").on('click', function(){
+     $("#addHighScore").on('click', function(e){
          // get input value from text field
          $.confetti.stop();
         var hsName = $("#newHighScoreName").val();        

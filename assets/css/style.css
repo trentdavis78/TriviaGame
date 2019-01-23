@@ -292,6 +292,9 @@ figcaption {
     color: #999;
     font-style: italic;
 }
+#memoriamContent a {
+    color: #212529;
+}
 #memoriamContent {
     border-top: 1px solid #e9ecef;
     padding: 1rem;
