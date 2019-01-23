@@ -268,7 +268,6 @@ $("#finalAnswer").on('click', function(){
         $('div.highlight').removeClass('highlight');        
         time = origTime;        
         qNum++;
-        console.clear();
         if(questionsAnswered < 20){
             if(qNum < questionLength){            
                 startRound();
@@ -393,8 +392,11 @@ $("#finalAnswer").on('click', function(){
             else {
                 return (a[1] < b[1]) ? -1 : 1;
             }
-        });       
+           
+        });    
+        console.log(scoreArr);   
     }
+    
     // allow enter key in the Enter your name field
     $("#newHighScoreName").keyup(function(event) {
         if (event.keyCode === 13) {
