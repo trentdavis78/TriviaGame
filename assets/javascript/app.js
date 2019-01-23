@@ -203,28 +203,38 @@ $("#finalAnswer").on('click', function(){
         }        
     // function to add score based on streak value and update fa-fire CSS
     function addScore(){        
-        if(streak > 4) {
+        if(streak > 17) {
+            $("#scoreMultiplier").text("10");
+            scoreAninmation();  
+            score = score + 10;             
+        }
+        else if(streak > 5) {
             $("#scoreMultiplier").text("5");
             scoreAninmation();  
             score = score + 5;             
         }
-        else if(streak == 4){
-            $("#scoreMultiplier").text("2");
+        else if(streak == 5){
+            $("#scoreMultiplier").text("4");
             scoreAninmation();  
-            score = score + 2;
+            score = score + 4;
             setTimeout(function(){
                 $("#heatMed").fadeOut(1000);
                 $("#heatHi").fadeIn(1000);
-            }, 1500);           
+            }, 1500);  
         }
-        else if(streak == 3) {
-            $("#scoreMultiplier").text("1.5");
+        else if(streak == 4) {
+            $("#scoreMultiplier").text("2");
             scoreAninmation();    
-            score = score + 1.5;
+            score = score + 2;
             setTimeout(function(){
                 $("#heatLo").fadeOut(1000);
                 $("#heatMed").fadeIn(1000);
             }, 1500);            
+        }
+        else if(streak == 3) {
+            $("#scoreMultiplier").text("2");
+            scoreAninmation();    
+            score = score + 2;                   
         }
         else if(streak == 2) {      
             $(".deactive").fadeOut(1000)
