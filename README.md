@@ -16,15 +16,11 @@ You will have 10 seconds to read the question and select an answer. If you feel 
 
 Answer consecutive trivia questions to increase your hot streak.  
 Note: Incorrect and unanswered questions will end your streak  
-- **No current streak**  
-_- Getting Warm.._  
-**Answers are worth 2 pts.**  
-_- Heating Up.._  
-**Answers are worth 4 pts.**  
-_- You're On FIRE!_  
-**Answers are worth 5 pts.**  
-_- UNSTOPPABLE!!_  
-**Answers are worth 10 pts.**  
+* Deactive Flame: **No current streak**  
+* Yellow Flame: Getting Warm.. **Answers are worth 2 pts.**  
+* Orange Flame: Heating Up.. **Answers are worth 4 pts.**  
+* Red Flame: You're On FIRE!.. **Answers are worth 5 pts.**  
+* UNSTOPPABLE!!.. **Answers are worth 10 pts.**  
 
 #### Scoring
 
