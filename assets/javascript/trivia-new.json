@@ -1,244 +1,233 @@
 {
-    "general" : {
-        "q0" : {
-            "answer" : 2,
-            "choices" : [ "Analogist", "Despise", "Nostalgia", "Sententious" ],
-            "question" : "A 'sentimentality for the past' can be defined by the word:"
-        },
-
-        "q1" : {
-            "answer" : 0,
-            "choices" : [ "Northern Arizona University", "Arizona State University", "University of Phoenix", "University of Utah" ],
-            "question" : "This school was orignally called the Northern Arizona Normal School:"
-        },
-    
-        "q2" : {
-            "answer" : 1,
-            "choices" : [ "Colt", "Glock", "Red Rider", "Kalashnikov" ],
-            "question" : "This firearm holds the namesake of its Austrian engineer founder:"
-        },
-
-        "q3" : {
-            "answer" : 3,
-            "choices" : [ "ASL", "Social Media", "Rock Climbing", "Amateur Radio" ],
-            "question" : "'Breaker 1-9' is a slang term you would hear in:"
-        },
-
-        "q4" : {
-            "answer" : 0,
-            "choices" : [ "Jehovah's Witnesses", "Mormonism", "Scientology", "Judaism" ],
-            "question" : "Religion founded in the late 1870s by Charles Taze Russell:"
-        }
-
-    },
-
-    "movies" : {
-        "q0" : {
-            "answer" : 1,
-            "choices" : [ "Native Son", "The Color Purple", "Ghost", "The Sound of Music" ],
-            "question" : "Oprah Winfrey won 'Best Actress in a Supporting Role' for this 1985 movie:"
-        },
-
-        "q1" : {
-            "answer" : 2,
-            "choices" : [ "Blow", "Edward Scissorhands", "Pirates of the Caribbean", "Jack and Jill" ],
-            "question" : "Johnny Depp stars as Jack Sparrow in:"
-        },
-        
-        "q2" : {
-            "answer" : 2,
-            "choices" : [ "1984", "Back to the Future II", "The Karate Kid", "Cocktail" ],
-            "question" : "Pat Morita and Elisabeth Shue co-starred in this 1984 movie:"
-        },
-        "q3" : {
-            "answer" : 0,
-            "choices" : [ "Dr. David Trent", "Nosferatu", "Dr. Jekyl/Mr. Hyde", "Slender Man" ],
-            "question" : "Alan Marshall played this character in the 1959 film House on Haunted Hill"
-        },
-        "q4" : {
-            "answer" : 3,
-            "choices" : [ "Gotham City", "Themyscira", "Sea World", "Atlantis" ],
-            "question" : "The name of the aquatic civilization home to DC's Aquaman: "
-        }
-    },
-    "music" : {
-        "q0" : {
-            "answer" : 2,
-            "choices" : [ "Honolulu, HI", "Los Angeles, CA", "Asbury Park, NJ", "Columbia, SC" ],
-            "question" : "Bruce Springsteen's debut album was titled 'Greetings from..'"
-        },
-        "q1" : {
-            "answer" : 0,
-            "choices" : [ "Mustang Sally", "Brand New Cadillac", "Little Red Corvette", "Mercedes Benz" ],
-            "question" : "This popular Wilson Pickett song is named after a car:"
-        },
-        "q2" : {
-            "answer" : 1,
-            "choices" : [ "Grass is Green", "Nobody Knows", "Love at the End of the Road", "Area Codes" ],
-            "question" : "This 1995 song by The Tony Rich Project was covered by Kevin Sharp in 1996:"
-        },
-        "q3" : {
-            "answer" : 2,
-            "choices" : [ "K-Pop", "A cappella", "Karaoke", "Haiku" ],
-            "question" : "This Japanese word roughly translates to 'empty orchestra':"
-        },
-        "q4" : {
-            "answer" : 3,
-            "choices" : [ "Lil'", "Dr.", "MC", "DJ" ],
-            "question" : "Precedes: Khaled, Clue, Preimere, and Kay Slay"
-        }
-    },
     "entertainment" : {
-        "q0" : {
-            "answer" : 2,
-            "choices" : [ "Joey", "Chandler", "Ross", "Rachel" ],
-            "question" : "This 'Friends' character owned a monkey:"
-        },
-        "q1" : {
-            "answer" : 1,
-            "choices" : [ "Fezzik", "Andre", "Arnold", "Goliath" ],
-            "question" : "This 'giant' made a cameo appearance in The Princess Bride:"
-        },
-        "q2" : {
-            "answer" : 3,
-            "choices" : [ "Little Bruce", "Braydon", "Brendon", "Brandon" ],
-            "question" : "Son of Bruce Lee and lead actor in The Crow:"
-        },
-        "q3" : {
-            "answer" : 2,
-            "choices" : [ "Sharon", "Olsen", "Shannon", "Taylor" ],
-            "question" : "This famous 'Elizabeth' played in the 1999 film American Pie:"
-        },
-        "q4" : {
-            "answer" : 0,
-            "choices" : [ "Private Investigator", "Bartender", "Uber Driver", "Lawyer" ],
-            "question" : "Marvel's Jessica Jones is a:"
-        }
+      "q0" : {
+        "answer" : 2,
+        "choices" : [ "Joey", "Chandler", "Ross", "Rachel" ],
+        "question" : "This 'Friends' character owned a monkey:"
+      },
+      "q1" : {
+        "answer" : 1,
+        "choices" : [ "Fezzik", "Andre", "Arnold", "Goliath" ],
+        "question" : "This 'giant' made a cameo appearance in The Princess Bride:"
+      },
+      "q2" : {
+        "answer" : 3,
+        "choices" : [ "Little Bruce", "Braydon", "Brendon", "Brandon" ],
+        "question" : "Son of Bruce Lee and lead actor in The Crow:"
+      },
+      "q3" : {
+        "answer" : 2,
+        "choices" : [ "Sharon", "Olsen", "Shannon", "Taylor" ],
+        "question" : "This famous 'Elizabeth' played in the 1999 film American Pie:"
+      },
+      "q4" : {
+        "answer" : 0,
+        "choices" : [ "Private Investigator", "Bartender", "Uber Driver", "Lawyer" ],
+        "question" : "Marvel's Jessica Jones is a:"
+      }
     },
     "famous_dates" : {
-        "q0" : {
-            "answer" : 1,
-            "choices" : [ "February 29, 1990", "March 9, 1997", "September 3, 1998", "March 1, 2003" ],
-            "question" : "The Notorious B.I.G. was shot and killed on this date:"
-        },
-        "q1" : {
-            "answer" : 0,
-            "choices" : [ "April 15, 1912", "January 4, 1920", "May 6, 1942", "December 19, 1997" ],
-            "question" : "The Titanic sunk on this date:"
-        },
-        "q2" : {
-            "answer" : 2,
-            "choices" : [ "January 8, 1935", "August 29, 1947", "June 7, 1958", "September 12, 1972" ],
-            "question" : "The artist formerly known as Prince was born on this date:"
-        },
-        "q3" : {
-            "answer" : 0,
-            "choices" : [ "December 15, 1773", "June 31, 1782", "January 8, 1809", "September 1, 1911" ],
-            "question" : "The Boston Tea Party took place on this date:"
-        },
-        "q4" : {
-            "answer" : 3,
-            "choices" : [ "January 11, 1962", "April 10, 1942", "November 31, 1931", "January 15, 1929" ],
-            "question" : "Martin Luther King, Jr. was born on this date:"
-        }
+      "q0" : {
+        "answer" : 1,
+        "choices" : [ "February 29, 1990", "March 9, 1997", "September 3, 1998", "March 1, 2003" ],
+        "question" : "The Notorious B.I.G. was shot and killed on:"
+      },
+      "q1" : {
+        "answer" : 0,
+        "choices" : [ "April 15, 1912", "January 4, 1920", "May 6, 1942", "December 19, 1997" ],
+        "question" : "The Titanic sunk on:"
+      },
+      "q2" : {
+        "answer" : 2,
+        "choices" : [ "January 8, 1935", "August 29, 1947", "June 7, 1958", "September 12, 1972" ],
+        "question" : "The artist formerly known as Prince was born on:"
+      },
+      "q3" : {
+        "answer" : 0,
+        "choices" : [ "December 15, 1773", "June 31, 1782", "January 8, 1809", "September 1, 1911" ],
+        "question" : "The Boston Tea Party took place on:"
+      },
+      "q4" : {
+        "answer" : 3,
+        "choices" : [ "January 11, 1962", "April 10, 1942", "November 31, 1931", "January 15, 1929" ],
+        "question" : "Martin Luther King, Jr. was born on:"
+      }
+    },
+    "general" : {
+      "q0" : {
+        "answer" : 2,
+        "choices" : [ "Analogist", "Despise", "Nostalgia", "Sententious" ],
+        "question" : "A 'sentimentality for the past' can be defined by the word:"
+      },
+      "q1" : {
+        "answer" : 0,
+        "choices" : [ "Northern Arizona University", "Arizona State University", "University of Phoenix Online", "University of Utah" ],
+        "question" : "This school was orignally called the Northern Arizona Normal School:"
+      },
+      "q2" : {
+        "answer" : 1,
+        "choices" : [ "Colt", "Glock", "Red Rider", "Kalashnikov" ],
+        "question" : "This firearm holds the namesake of its Austrian engineer founder:"
+      },
+      "q3" : {
+        "answer" : 3,
+        "choices" : [ "ASL", "Social Media", "Rock Climbing", "Amateur Radio" ],
+        "question" : "'Breaker 1-9' is a slang term you would hear in:"
+      },
+      "q4" : {
+        "answer" : 0,
+        "choices" : [ "Jehovah's Witnesses", "Mormonism", "Scientology", "Judaism" ],
+        "question" : "Religion founded in the 1870s by Charles Taze Russell:"
+      }
     },
     "geography" : {
-        "q0" : {
-            "answer" : 1,
-            "choices" : [ "Georgia", "New Jersey", "Alaska", "Washington" ],
-            "question" : "This state is sometimes referred to as the Diner Capital of the World:"
-        },
-        "q1" : {
-            "answer" : 1,
-            "choices" : [ "Oklahoma City, OK", "Round Rock, TX", "Nashville, TN", "Tampa Bay, FL" ],
-            "question" : "Dell Technologies is headquartered in:"
-        },
-        "q2" : {
-            "answer" : 3,
-            "choices" : [ "Costa Rica", "Jamaica", "Palau", "Guam" ],
-            "question" : "This island is a U.S. territory in Micronesia:"
-        },
-        "q3" : {
-            "answer" : 0,
-            "choices" : [ "Florida", "Iowa", "Deleware", "Mississippi" ],
-            "question" : "The Seven Mile Bridge is located in:"
-        },
-        "q4" : {
-            "answer" : 2,
-            "choices" : [ "Washington D.C.", "Los Angeles, CA", "Tucson, AZ", "Denver, CO" ],
-            "question" : "Pima County is located in:"
-        }
+      "q0" : {
+        "answer" : 1,
+        "choices" : [ "Georgia", "New Jersey", "Alaska", "Washington" ],
+        "question" : "This state is sometimes referred to as the Diner Capital of the World:"
+      },
+      "q1" : {
+        "answer" : 1,
+        "choices" : [ "Oklahoma City, OK", "Round Rock, TX", "Nashville, TN", "Tampa Bay, FL" ],
+        "question" : "Dell Technologies is headquartered in:"
+      },
+      "q2" : {
+        "answer" : 3,
+        "choices" : [ "Costa Rica", "Jamaica", "Palau", "Guam" ],
+        "question" : "This island is a U.S. territory in Micronesia:"
+      },
+      "q3" : {
+        "answer" : 0,
+        "choices" : [ "Florida", "Iowa", "Deleware", "Mississippi" ],
+        "question" : "The Seven Mile Bridge is located in:"
+      },
+      "q4" : {
+        "answer" : 2,
+        "choices" : [ "Washington D.C.", "Los Angeles, CA", "Tucson, AZ", "Denver, CO" ],
+        "question" : "Pima County is located in:"
+      }
     },
-    
-    "sports" : {
-        "q0" : {
-            "answer" : 2,
-            "choices" : [ "Mickey Mantle", "Whitey Ford", "Sandy Koufax", "Cy Young" ],
-            "question" : "This pitcher was the youngest player elected into the Baseball Hall of Fame:"
-        },
-        "q1" : {
-            "answer" : 0,
-            "choices" : [ "Miami Dolphins", "Green Bay Packers", "Carolina Panthers", "Piitsburgh Steelers" ],
-            "question" : "This team was founded by Joe Robbie in 1966:"
-        },
-        "q2" : {
-            "answer" : 1,
-            "choices" : [ "Golden State Warriors", "New York Knicks", "Indiana Pacers", "Philadelphia 76ers" ],
-            "question" : "Walt Frazier played 10 season for this NBA team:"
-        },
-        "q3" : {
-            "answer" : 0,
-            "choices" : [ "New York Mets", "Philadelphia Phillies", "Brooklyn Dodgers", "Boston Red Sox" ],
-            "question" : "The NY Yankees played the 2000 World 'Subway' Series versus this team:"
-        },
-        "q4" : {
-            "answer" : 3,
-            "choices" : [ "Chicago Bulls", "Oklahoma City Thunder", "Houston Rockets", "New Jersey Nets" ],
-            "question" : "Shaquille O'Neal broke a backboard versus this team on April 23, 1993:"
-        }     
-        
-    },
-
-    "instruments" : {
-        "q0" : {
-            "answer" : 2,
-            "choices" : [ "Harp", "Banjo", "Guitar", "Drum" ],
-            "question" : "This instrument traditionally has six strings:"
-        },
-        "q1" : {
-            "answer" : 3,
-            "choices" : [ "Accordion", "Tambourine", "Cello", "Piano" ],
-            "question" : "Variations of this instrument include 'Grand' and 'Upright':"
-        },
-        "q2" : {
-            "answer" : 0,
-            "choices" : [ "Bass Guitar", "Saxophone", "Xylophone", "Trumpet" ],
-            "question" : "Paul McCartney played this instrument:"
-        },
-        "q3" : {
-            "answer" : 2,
-            "choices" : [ "Organ", "Metronome", "Synthesizer", "Auto Tune" ],
-            "question" : "An electronic instrument used to imitate traditional musical sounds:"
-        },
-        "q4" : {
-            "answer" : 3,
-            "choices" : [ "Marimba", "Kazoo", "Flute", "Violin" ],
-            "question" : "This instrument was created by Andrea Amati in the 1500s:"
-        }
-    },
-
     "highscores" : {
-        "p0" : {
-            "name" : "John",
-            "score" : 0
-        },
-        "p1" : {
-            "name" : "Joe",
-            "score" : 0
-        },
-        "p2" : {
-            "name" : "Jane",
-            "score" : 0
-        }
+      "p0" : {
+        "name" : "Trent",
+        "score" : 100
+      },
+      "p1" : {
+        "name" : "Trent",
+        "score" : 87
+      },
+      "p2" : {
+        "name" : "Master",
+        "score" : 85
+      }
+    },
+    "instruments" : {
+      "q0" : {
+        "answer" : 2,
+        "choices" : [ "Harp", "Banjo", "Guitar", "Drum" ],
+        "question" : "This instrument traditionally has six strings:"
+      },
+      "q1" : {
+        "answer" : 3,
+        "choices" : [ "Accordion", "Tambourine", "Cello", "Piano" ],
+        "question" : "Variations of this instrument include 'Grand' and 'Upright':"
+      },
+      "q2" : {
+        "answer" : 0,
+        "choices" : [ "Bass Guitar", "Saxophone", "Xylophone", "Trumpet" ],
+        "question" : "Paul McCartney played the:"
+      },
+      "q3" : {
+        "answer" : 2,
+        "choices" : [ "Organ", "Metronome", "Synthesizer", "Auto Tune" ],
+        "question" : "An electronic instrument used to imitate traditional musical sounds:"
+      },
+      "q4" : {
+        "answer" : 3,
+        "choices" : [ "Marimba", "Kazoo", "Flute", "Violin" ],
+        "question" : "Andrea Amati created this instrument in the 1500s:"
+      }
+    },
+    "movies" : {
+      "q0" : {
+        "answer" : 1,
+        "choices" : [ "Native Son", "The Color Purple", "Ghost", "The Sound of Music" ],
+        "question" : "Oprah Winfrey won Best Actress in a Supporting Role for this 1985 movie:"
+      },
+      "q1" : {
+        "answer" : 2,
+        "choices" : [ "Blow", "Edward Scissorhands", "Pirates of the Caribbean", "Jack and Jill" ],
+        "question" : "Johnny Depp stars as Jack Sparrow in:"
+      },
+      "q2" : {
+        "answer" : 2,
+        "choices" : [ "1984", "Back to the Future II", "The Karate Kid", "Cocktail" ],
+        "question" : "Pat Morita and Elisabeth Shue co-starred in this 1984 movie:"
+      },
+      "q3" : {
+        "answer" : 0,
+        "choices" : [ "Dr. David Trent", "Nosferatu", "Dr. Jekyl/Mr. Hyde", "Slender Man" ],
+        "question" : "Alan Marshall played this character in the 1959 film House on Haunted Hill"
+      },
+      "q4" : {
+        "answer" : 3,
+        "choices" : [ "Gotham City", "Themyscira", "Sea World", "Atlantis" ],
+        "question" : "The name of the aquatic civilization home to DC's Aquaman: "
+      }
+    },
+    "music" : {
+      "q0" : {
+        "answer" : 2,
+        "choices" : [ "Honolulu, HI", "Los Angeles, CA", "Asbury Park, NJ", "Columbia, SC" ],
+        "question" : "Bruce Springsteen's debut album was titled 'Greetings from..'"
+      },
+      "q1" : {
+        "answer" : 0,
+        "choices" : [ "Mustang Sally", "Brand New Cadillac", "Little Red Corvette", "Mercedes Benz" ],
+        "question" : "This popular Wilson Pickett song is named after a car:"
+      },
+      "q2" : {
+        "answer" : 1,
+        "choices" : [ "Grass is Green", "Nobody Knows", "Love at the End of the Road", "Area Codes" ],
+        "question" : "This 1995 song by The Tony Rich Project was also covered by Kevin Sharp:"
+      },
+      "q3" : {
+        "answer" : 2,
+        "choices" : [ "K-Pop", "A cappella", "Karaoke", "Haiku" ],
+        "question" : "This Japanese word roughly translates to 'empty orchestra':"
+      },
+      "q4" : {
+        "answer" : 3,
+        "choices" : [ "Lil'", "Dr.", "MC", "DJ" ],
+        "question" : "Precedes Khaled, Clue, Preimere or Kay Slay"
+      }
+    },
+    "sports" : {
+      "q0" : {
+        "answer" : 2,
+        "choices" : [ "Mickey Mantle", "Whitey Ford", "Sandy Koufax", "Cy Young" ],
+        "question" : "This pitcher was the youngest player elected into the Baseball Hall of Fame:"
+      },
+      "q1" : {
+        "answer" : 0,
+        "choices" : [ "Miami Dolphins", "Green Bay Packers", "Carolina Panthers", "Piitsburgh Steelers" ],
+        "question" : "This team was founded by Joe Robbie in 1966:"
+      },
+      "q2" : {
+        "answer" : 1,
+        "choices" : [ "Golden State Warriors", "New York Knicks", "Indiana Pacers", "Philadelphia 76ers" ],
+        "question" : "Walt Frazier played 10 season for this NBA team:"
+      },
+      "q3" : {
+        "answer" : 0,
+        "choices" : [ "New York Mets", "Philadelphia Phillies", "Brooklyn Dodgers", "Boston Red Sox" ],
+        "question" : "The NY Yankees played the 2000 World 'Subway' Series versus this team:"
+      },
+      "q4" : {
+        "answer" : 3,
+        "choices" : [ "Chicago Bulls", "Oklahoma City Thunder", "Houston Rockets", "New Jersey Nets" ],
+        "question" : "Shaquille O'Neal broke a backboard versus this team on April 23, 1993:"
+      }
     }
-}
+  }
+  
