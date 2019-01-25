@@ -1,231 +1,245 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trivia Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
-    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Prompt|Sonsie+One|Erica+One|Great+Vibes|Niconne" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />    
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <script src="https://www.gstatic.com/firebasejs/5.7.3/firebase.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
     <script src="assets/javascript/particles.js"></script>
 </head>
 <body>
-<div id="particles-js"></div>
-<div class="container" id="main-content">
-    <nav class="navbar navbar-expand-lg bg-theme">
+    <div id="particles-js"></div>
+    <div class="container" id="main-content">
+        <nav class="navbar navbar-expand-lg bg-theme">
             <a id="trigger" class="navbar-brand" href="index.html">
                 <img class="logo-img" src="assets/images/logo.svg">
                 <span class="logo-text d-none d-sm-none d-md-inline">Trivia</span>
             </a>
-            <div class="ml-auto icons">                         
-                    <span id="scoreAnim" class="scoreAnim">+<span id="scoreMultiplier">2</span></span>              
-                    <i class="fas fa-fire game-icons fa-lg mr-3 deactive"></i>
-                    <i id="heatLo" class="fas fa-fire game-icons fa-lg mr-3 hideFire"></i>
-                    <i id="heatMed" class="fas fa-fire game-icons fa-lg mr-3 hideFire"></i>
-                    <i id="heatHi" class="fas fa-fire game-icons fa-lg mr-3 hideFire"></i>
-                    <i data-toggle="modal" data-target="#instructModal" title="How to Play" class="fas fa-question-circle fa-lg"></i>
+            <div class="ml-auto icons">
+                <span id="scoreAnim" class="scoreAnim">+<span id="scoreMultiplier">2</span></span>
+                <i class="fas fa-fire game-icons fa-lg mr-3 deactive"></i>
+                <i id="heatLo" class="fas fa-fire game-icons fa-lg mr-3 hideFire"></i>
+                <i id="heatMed" class="fas fa-fire game-icons fa-lg mr-3 hideFire"></i>
+                <i id="heatHi" class="fas fa-fire game-icons fa-lg mr-3 hideFire"></i>
+                <i data-toggle="modal" data-target="#instructModal" title="How to Play" class="fas fa-question-circle fa-lg"></i>
             </div>
-    </nav>
-    
-    <!-- Begin Instructions Modal -->
-    <div class="modal fade" id="instructModal" tabindex="-1" role="dialog" aria-labelledby="instructModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="instructModalModalLabel">How to Play</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-               <h4>Selecting a Category</h4>
-               <hr>
-               <p>Choose a category that you feel most comfortable with. Pick wisely, when you've completed the round the previous categories may no longer be an option!</p>
-               <h4>Q&A</h4>
-               <hr>
-               <p>You will have 10 seconds to read the question and select an answer. 
-                   If you feel confident in your answer, you can click the Final Answer button to run out the clock. 
-                   Reponses will be scored in realtime as 'correct' or 'incorrect'. 
-                   If time expires and no selection has been made, the question will be scored as 'unanswered'.</p>
-               <h4>Hot Streaks</h4>
-               <hr>
-               <p> Answer consecutive trivia questions to increase your hot streak.<br>Note: Incorrect and unanswered questions will end your streak<br>
-                    <i class="fas fa-fire fa-lg m-2 deactive"></i> - <b class="theme-font">No current streak</b><br>
-                    <i class="fas fa-fire fa-lg m-2 heatLo"> - Getting Warm..</i><br><b class="ml-5">Answers are worth 2 pts.</b><br>
-                    <i class="fas fa-fire fa-lg m-2 heatMed"> - Heating Up..</i><br><b class="ml-5">Answers are worth 4 pts.</b><br>
-                    <i class="fas fa-fire fa-lg m-2 heatHi"> - You're On FIRE!</i><br><b class="ml-5">Answers are worth 5 pts.</b><br>
-                    <i class="fas fa-question fa-lg m-2 ">  - UNSTOPPABLE!!</i><br><b class="ml-5">Answers are worth 10 pts.</b><br>
-
-               </p>
-               <h4>Scoring</h4>
-               <hr>
-               <p>At the end of each round you will be shown how many correct, incorrect, and unanswered questions you scored as well as your current total score. 
-                If you do not finish with a Top 3 score, you will be given the opportunity to try again.  </p>  
-               <h4>Leaderboard</h4>
-               <hr>
-               <p>If you finish with a Top 3 score, <b class="theme-font">CONGRATULATIONS!</b> You've won the game! You will be prompted to enter your <b>first name</b> onto our Leaderboard! Please limit your entry to 12 characters. 
-                </p>             
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-theme" data-dismiss="modal">Close</button>           
-            </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Instructions Modal -->
-    <!-- Begin In Memoriam Modal -->
-    <div class="modal fade" id="In-Memoriam" tabindex="-1" role="dialog" aria-labelledby="memoriamModalLabel" aria-hidden="true">
+        </nav>
+        <!-- Begin Instructions Modal -->
+        <div class="modal fade" id="instructModal" tabindex="-1" role="dialog" aria-labelledby="instructModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h2 class="modal-title" id="memoriamModalLabel">In Memoriam</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                    <h3 id="imgHeader">Trent Davis, Sr.</h3>
-                    <div id="imgDiv">
-                        <img src="assets/images/dad.jpg" alt="In Memoriam.. Trent A. Davis Sr."/>                        
-                    </div>   
-                    <figcaption>December 15th, 1952 - January 15th, 2019</figcaption>           
-                </div>
-                <div id="memoriamContent">
-                    <p>This trivia game was created as a homework assignment for the <a href="https://techbootcamps.utexas.edu/coding/" target="_blank">Coding Bootcamp at the University of Texas</a>.</p>
-                    <p>The game and its contents are dedicated to the memory of my father, Trent A. Davis, Sr. </p>
-                    <p>All correct trivia answers are references to my father's life and curated through personal memories, 
-                        <a href="https://www.facebook.com/trent.davis.Sr" target="_blank">Facebook</a>, and 
-                        <a href="https://www.linkedin.com/in/trent-a-davis-sr-3a169521/" target="_blank">LinkedIn</a>.</p>                   
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                
-                </div>
-            </div>
-            </div>
-    </div>
-    <!-- End In Memoriam Modal -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="instructModalModalLabel">How to Play</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Selecting a Category</h4>
+                        <hr>
+                        <p>Choose a category that you feel most comfortable with. Pick wisely, when you've completed
+                            the round the previous categories may no longer be an option!</p>
+                        <h4>Q&A</h4>
+                        <hr>
+                        <p>You will have 10 seconds to read the question and select an answer.
+                            If you feel confident in your answer, you can click the Final Answer button to run out the
+                            clock.
+                            Reponses will be scored in realtime as 'correct' or 'incorrect'.
+                            If time expires and no selection has been made, the question will be scored as
+                            'unanswered'.</p>
+                        <h4>Hot Streaks</h4>
+                        <hr>
+                        <p> Answer consecutive trivia questions to increase your hot streak.<br>Note: Incorrect and
+                            unanswered questions will end your streak<br>
+                            <i class="fas fa-fire fa-lg m-2 deactive"></i> - <b class="theme-font">No current streak</b><br>
+                            <i class="fas fa-fire fa-lg m-2 heatLo"> - Getting Warm..</i><br><b class="ml-5">Answers
+                                are worth 2 pts.</b><br>
+                            <i class="fas fa-fire fa-lg m-2 heatMed"> - Heating Up..</i><br><b class="ml-5">Answers are
+                                worth 4 pts.</b><br>
+                            <i class="fas fa-fire fa-lg m-2 heatHi"> - You're On FIRE!</i><br><b class="ml-5">Answers
+                                are worth 5 pts.</b><br>
+                            <i class="fas fa-question fa-lg m-2 "> - UNSTOPPABLE!!</i><br><b class="ml-5">Answers are
+                                worth 10 pts.</b><br>
 
-    <div id="splash">        
-        <h1>Select Category:</h1>
-        <div class="row">
-            <button id="categoryBtn-0" class="btn btn-theme btn-lg btn-block mt-2 categoryBtn" value="general">General</button>
+                        </p>
+                        <h4>Scoring</h4>
+                        <hr>
+                        <p>At the end of each round you will be shown how many correct, incorrect, and unanswered
+                            questions you scored as well as your current total score.
+                            If you do not finish with a Top 3 score, you will be given the opportunity to try again.
+                        </p>
+                        <h4>Leaderboard</h4>
+                        <hr>
+                        <p>If you finish with a Top 3 score, <b class="theme-font">CONGRATULATIONS!</b> You've won the
+                            game! You will be prompted to enter your <b>first name</b> onto our Leaderboard! Please
+                            limit your entry to 12 characters.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-theme" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <button id="categoryBtn-1" class="btn btn-theme btn-lg btn-block mt-2 categoryBtn" value="sports">Sports</button>
+        <!-- End Instructions Modal -->
+        <!-- Begin In Memoriam Modal -->
+        <div class="modal fade" id="In-Memoriam" tabindex="-1" role="dialog" aria-labelledby="memoriamModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="memoriamModalLabel">In Memoriam</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 id="imgHeader">Trent Davis, Sr.</h3>
+                        <div id="imgDiv">
+                            <img src="assets/images/dad.jpg" alt="In Memoriam.. Trent A. Davis Sr." />
+                        </div>
+                        <figcaption>December 15th, 1952 - January 15th, 2019</figcaption>
+                    </div>
+                    <div id="memoriamContent">
+                        <p>This trivia game was created as a homework assignment for the <a href="https://techbootcamps.utexas.edu/coding/"
+                                target="_blank">Coding Bootcamp at the University of Texas</a>.</p>
+                        <p>The game and its contents are dedicated to the memory of my father, Trent A. Davis, Sr. </p>
+                        <p>All correct trivia answers are references to my father's life and curated through personal
+                            memories,
+                            <a href="https://www.facebook.com/trent.davis.Sr" target="_blank">Facebook</a>, and
+                            <a href="https://www.linkedin.com/in/trent-a-davis-sr-3a169521/" target="_blank">LinkedIn</a>.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
+        <!-- End In Memoriam Modal -->
+        <div id="splash">
+            <h1>Select Category:</h1>
+            <div class="row">
+                <button id="categoryBtn-0" class="btn btn-theme btn-lg btn-block mt-2 categoryBtn" value="general">General</button>
+            </div>
+            <div class="row">
+                <button id="categoryBtn-1" class="btn btn-theme btn-lg btn-block mt-2 categoryBtn" value="sports">Sports</button>
+            </div>
+            <div class="row">
                 <button id="categoryBtn-2" class="btn btn-theme btn-lg btn-block mt-2 categoryBtn" value="coding">Coding</button>
-        </div>
-        <div class="row">
+            </div>
+            <div class="row">
                 <button id="categoryBtn-3" class="btn btn-theme btn-lg btn-block mt-2 categoryBtn" value="movies">Movies</button>
-        </div>                
-    </div>
-    <div id="endRound" class="hidden">
-        <h1>Round Over!</h1>
-        <div class="tally mx-auto">
-            <div class="text-left"><span id="wins" class="badge badge-theme"></span> Correct</div>
-            <div class="text-left"><span id="losses" class="badge badge-theme"></span> Incorrect</div>
-            <div class="text-left"><span id="unanswered" class="badge badge-theme"></span> Unanswered</div>  
+            </div>
         </div>
-        <h4>Your current score is:</h4>
-        <h2 id="score"></h2> 
-        <button id="nextCategory" class="btn btn-success btn-lg">Next Category</button>
-    </div>
-    <div id="endGame" class="hidden">
+        <div id="endRound" class="hidden">
+            <h1>Round Over!</h1>
+            <div class="tally mx-auto">
+                <div class="text-left"><span id="wins" class="badge badge-theme"></span> Correct</div>
+                <div class="text-left"><span id="losses" class="badge badge-theme"></span> Incorrect</div>
+                <div class="text-left"><span id="unanswered" class="badge badge-theme"></span> Unanswered</div>
+            </div>
+            <h4>Your current score is:</h4>
+            <h2 id="score"></h2>
+            <button id="nextCategory" class="btn btn-success btn-lg">Next Category</button>
+        </div>
+        <div id="endGame" class="hidden">
             <h1>Game Over!</h1>
-            <h4>Your final score is: </h4> 
+            <h4>Your final score is: </h4>
             <h2 id="finalScore"></h2>
             <button id="startOver" class="btn btn-success btn-lg">Try Again?</button>
-    </div>
-    <div id="newHighScore" class="hidden">
-        <h1>New <span class="hsRed hsOutline">High </span><span class="hsYellow hsOutline">Score</span>!</h1>
-        <p>Enter your first name:</p>
-        <div class="form-row mx-auto">
-            <input maxlength="12" class="text-center" type="text" id="newHighScoreName" />
-            <button type="button" class="btn btn-theme" id="addHighScore">Add</button>   
-            <span class="charLimit mx-auto pt-1">Limit 12 characters</span>   
-        </div>           
-    </div>
-    <div id="gameContent" class="hidden">
+        </div>
+        <div id="newHighScore" class="hidden">
+            <h1>New <span class="hsRed hsOutline">High </span><span class="hsYellow hsOutline">Score</span>!</h1>
+            <p>Enter your first name:</p>
+            <div class="form-row mx-auto">
+                <input maxlength="12" class="text-center" type="text" id="newHighScoreName" />
+                <button type="button" class="btn btn-theme" id="addHighScore">Add</button>
+                <span class="charLimit mx-auto pt-1">Limit 12 characters</span>
+            </div>
+        </div>
+        <div id="gameContent" class="hidden">
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                    <h1 class="text-center" id="question"></h1>            
-                </div>         
+                    <h1 class="text-center" id="question"></h1>
+                </div>
             </div>
             <div class="row timerRow">
                 <div class="col-12 ">
-                        <div id="timer"></div>
+                    <div id="timer"></div>
                 </div>
-            </div>    
+            </div>
             <div class="row">
-            <div id="answerRow" class="col-12">
-                    <div class="answers mx-auto my-2 p-2">              
+                <div id="answerRow" class="col-12">
+                    <div class="answers mx-auto my-2 p-2">
                         <input class="mr-2" type="radio" name="answers" value="0">
-                        <span id="answer-0" class="" ></span>
+                        <span id="answer-0" class=""></span>
                     </div>
-                    <div class="answers mx-auto my-2 p-2">              
-                            <input class="mr-2" type="radio" name="answers" value="1">
-                            <span id="answer-1" class=""></span>
+                    <div class="answers mx-auto my-2 p-2">
+                        <input class="mr-2" type="radio" name="answers" value="1">
+                        <span id="answer-1" class=""></span>
                     </div>
-                    <div class="answers mx-auto my-2 p-2">              
-                            <input class="mr-2" type="radio" name="answers" value="2">
-                            <span id="answer-2" class=""></span>
+                    <div class="answers mx-auto my-2 p-2">
+                        <input class="mr-2" type="radio" name="answers" value="2">
+                        <span id="answer-2" class=""></span>
                     </div>
-                    <div class="answers mx-auto my-2 p-2">              
-                            <input class="mr-2" type="radio" name="answers" value="3">
-                            <span id="answer-3" class=""></span>
+                    <div class="answers mx-auto my-2 p-2">
+                        <input class="mr-2" type="radio" name="answers" value="3">
+                        <span id="answer-3" class=""></span>
                     </div>
                     <div class="finalAnswer mx-auto text-center">
                         <button class="btn-danger btn mt-4" id="finalAnswer">Final Answer</button>
-                    </div>                   
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="row">
+            <div id="leaderboard">
+                <h1>High Scores</h1>
+                <table class="table table-striped">
+                    <tr>
+                        <td class="rank">#1</td>
+                        <td class="playerName" id="p0">&nbsp;</td>
+                        <td class="playerScore" id="p0score">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="rank">#2</td>
+                        <td class="playerName" id="p1">&nbsp;</td>
+                        <td class="playerScore" id="p1score">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="rank">#3</td>
+                        <td class="playerName" id="p2">&nbsp;</td>
+                        <td class="playerScore" id="p2score">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-</div>
-
-
-    <div class="row">
-            <div id="leaderboard">        
-                    <h1>High Scores</h1>
-                    <table class="table table-striped">
-                        <tr>
-                            <td class="rank">#1</td><td class="playerName" id="p0">&nbsp;</td><td class="playerScore" id="p0score">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="rank">#2</td><td class="playerName" id="p1">&nbsp;</td><td class="playerScore" id="p1score">&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td class="rank">#3</td><td class="playerName" id="p2">&nbsp;</td><td class="playerScore" id="p2score">&nbsp;</td>
-                        </tr>
-                    </table>           
-            </div>            
-    </div>
-
-
-</div>
-<footer class="footer py-2">
-    <div class="container">
-        <span class="text-muted">Made with &hearts; in Round Rock, TX<br/>&copy; Copyright 2019</span>
-    </div>
-</footer>
-
-
-<!-- begin js files -->
-
-  
-<script src="assets/javascript/app.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" 
-integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" 
-integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-<script src="assets/javascript/jquery.confetti.js"></script>
-<!-- end js files -->
+    <footer class="footer py-2">
+        <div class="container">
+            <span class="text-muted">Made with &hearts; in Round Rock, TX<br />&copy; Copyright 2019</span>
+        </div>
+    </footer>
+    <!-- begin js files -->
+    <script src="assets/javascript/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="assets/javascript/jquery.confetti.js"></script>
+    <!-- end js files -->
 </body>
+
 </html>
